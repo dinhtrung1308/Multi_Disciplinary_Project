@@ -4,8 +4,8 @@ import {
     Text,
 } from "react-native";
 import { Header, Left, Right, Icon, Body } from 'native-base';
-function Home({navigation}){
-    return (
+function Scene({navigation}){
+    return (    
         <View style={ {flex: 1} }>
             <Header>
                 <Left>
@@ -15,10 +15,10 @@ function Home({navigation}){
                 <Right />
             </Header>
             <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
-                <Text> Home Screen </Text>
+                <Text> Scene </Text>
             </View>
         </View>
     );
 }
 
-export default Home;
+export default Scene;

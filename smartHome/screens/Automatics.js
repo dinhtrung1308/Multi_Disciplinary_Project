@@ -4,7 +4,7 @@ import {
     Text,
 } from "react-native";
 import { Header, Left, Right, Icon, Body } from 'native-base';
-function Home({navigation}){
+function Automatics({navigation}){
     return (
         <View style={ {flex: 1} }>
             <Header>
@@ -15,10 +15,10 @@ function Home({navigation}){
                 <Right />
             </Header>
             <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
-                <Text> Home Screen </Text>
+                <Text> Automatics </Text>
             </View>
         </View>
     );
 }
 
-export default Home;
+export default Automatics;

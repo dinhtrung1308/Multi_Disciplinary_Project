@@ -1,9 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, View, ImageBackground, Dimensions, TextInput, TouchableOpacity} from 'react-native';
 import { images } from '../constants';
+import appTheme from '../constants/theme';
 const windoWidth = Dimensions.get('window').width;
 
-function Login(props) {
+function Login({navigation }) {
+
   return (
     <ImageBackground
             style={styles.background}
@@ -32,14 +34,14 @@ function Login(props) {
       </View>
 
       <TouchableOpacity
-        onPress={() => console.log('Login')} 
+        onPress={() => navigation.push('Home')} 
         style={styles.btnLogin}
         >
         <Text style={styles.text}>Login</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={console.log('Sign Up')} 
+        onPress={() => navigation.push('SignUp')} 
         style={styles.btnSignUp}
         >
         <Text style={styles.text}>Sign Up</Text>
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
     color: 'gold',
     fontSize: 40,
     fontWeight: 'bold',
-    fontFamily: "Cochin"
+    fontFamily: appTheme.FONTS.largeTitle.fontFamily
   },
   input: {
     width: windoWidth - 55,
