@@ -7,29 +7,12 @@
  */
 
 import React from 'react';
-import { Home,Scene,Automatics,Warning,FAQs,Feedback,Login,SignUp } from './screens';
+import {Login,SignUp } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { ScrollView } from 'react-native-gesture-handler';
+import TabScreen from './routes/HomeStack';
 
 const AuthStack = createStackNavigator();
-
-const homeDrawerStack = createDrawerNavigator();
-
-const TabScreen = () => {
-  return (
-    <homeDrawerStack.Navigator>
-      <homeDrawerStack.Screen name="Home" component={Home} />
-      <homeDrawerStack.Screen name="Scene" component={Scene} />
-      <homeDrawerStack.Screen name="Automatics" component={Automatics} />
-      <homeDrawerStack.Screen name="Warning" component={Warning} />
-      <homeDrawerStack.Screen name="FAQs" component={FAQs} />
-      <homeDrawerStack.Screen name="Feedback" component={Feedback} />
-    </homeDrawerStack.Navigator>
-  );
- };
 
 
 const App = () => {

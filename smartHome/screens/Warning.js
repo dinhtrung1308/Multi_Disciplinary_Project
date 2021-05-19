@@ -24,11 +24,11 @@
 // export default Warning;
 
 import React from 'react';
-import Navigator from '../routes/warningStack'
+import WarningTabStack from '../routes/warningStack'
 
 
-export default function Warning() {
-  return(
-    <Navigator/>
+export default function Warning({ navigation }) {
+  return (
+    <WarningTabStack />
   )
 }

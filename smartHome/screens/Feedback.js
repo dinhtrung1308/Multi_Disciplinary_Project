@@ -3,13 +3,13 @@ import {
     View,
     Text,
 } from "react-native";
-import { Header, Left, Right, Icon, Body } from 'native-base';
+import { Header, Left, Right, Icon, Body, Content } from 'native-base';
 function Feedback({navigation}){
     return (
         <View style={ {flex: 1} }>
-            <Header>
+             <Header style={ {backgroundColor:'black'} }>
                 <Left>
-                    <Icon name="menu" onPress={ () => navigation.openDrawer() } />
+                    <Icon name="menu" style={{color: '#b06f13'}} onPress={ () => navigation.openDrawer() } />
                 </Left>
                 <Body />
                 <Right />
