@@ -25,10 +25,10 @@ export const SIZES = {
     radius: 30,
     padding: 10,
     padding2: 12,
-
+    welcome: 18,
     // font sizes
-    largeTitle: 50,
-    h1: 30,
+    largeTitle: 55,
+    h1: 140,
     h2: 22,
     h3: 20,
     h4: 18,
@@ -37,15 +37,30 @@ export const SIZES = {
     body3: 16,
     body4: 14,
     body5: 12,
-
+    name: 21,
     // app dimensions
     width,
     height
 };
 
 export const FONTS = {
+    welcome: {
+        fontFamily: "Roboto-regular",
+        fontSize: SIZES.welcome,
+        color: COLORS.darkgray,
+        letterSpacing: -0.6,
+        lineHeight: SIZES.welcome + 4,
+    },
+    name: {
+        fontFamily: "Roboto-regular",
+        fontSize: SIZES.name,
+        fontWeight: '600',
+        color: COLORS.black,
+        letterSpacing: -1.1,
+        lineHeight: SIZES.name + 4,
+      },
     largeTitle: { fontFamily: "Roboto-regular", fontSize: SIZES.largeTitle, lineHeight: 55 },
-    h1: { fontFamily: "Roboto-Black", fontSize: SIZES.h1, lineHeight: 36 },
+    h1: { fontFamily: "Roboto-regular", fontSize: SIZES.h1, color: COLORS.black, letterSpacing: -10, lineHeight: SIZES.h1, },
     h2: { fontFamily: "Roboto-Bold", fontSize: SIZES.h2, lineHeight: 30 },
     h3: { fontFamily: "Roboto-Bold", fontSize: SIZES.h3, lineHeight: 22 },
     h4: { fontFamily: "Roboto-Bold", fontSize: SIZES.h4, lineHeight: 22 },

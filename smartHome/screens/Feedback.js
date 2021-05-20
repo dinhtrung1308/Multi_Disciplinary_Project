@@ -4,15 +4,18 @@ import {
     Text,
 } from "react-native";
 import { Header, Left, Right, Icon, Body, Content } from 'native-base';
+import { FONTS } from '../constants';
 function Feedback({navigation}){
     return (
         <View style={ {flex: 1} }>
              <Header style={ {backgroundColor:'black'} }>
-                <Left>
-                    <Icon name="menu" style={{color: '#b06f13'}} onPress={ () => navigation.openDrawer() } />
+                <Left style={ {flex:1} }>
+                    <Icon name="menu" style={{color: '#b06f13', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
                 </Left>
-                <Body />
-                <Right />
+                <Body style={ {flex:1} } >
+                    <Text style={ {color:'#b06f13', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }>Feedback</Text>
+                </Body>
+                <Right style={ {flex:1} } />
             </Header>
             <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
                 <Text> Feedback </Text>
