@@ -11,9 +11,9 @@ import { Header, Left, Right, Icon, Body, Switch } from 'native-base';
 import { FONTS } from '../constants';
 import { Block } from '../components'
 import { ActivityIndicator } from 'react-native-paper';
+import { AIO_KEY } from '@env';
 function Home({ route, navigation }) {
 
-    const user_AIO_KEY = 'aio_zjfC91U4h9G6wwcacGsFw0SeBSXC';
 
     const [isGettingTemp, setGettingTemp] = React.useState(true);
     const [temperature, setTemperature] = React.useState(31) 
@@ -26,7 +26,7 @@ function Home({ route, navigation }) {
         return fetch("https://io.adafruit.com/api/v2/baodao811/feeds/bbc-temperature/data?limit=1", {
             method: 'GET',
             headers: {
-                'X-AIO-Key': user_AIO_KEY,
+                'X-AIO-Key': AIO_KEY,
             }
         })
             .then((response) => response.json())
@@ -59,7 +59,7 @@ function Home({ route, navigation }) {
 
             headers: {
                 'Content-Type': 'application/json',
-                'X-AIO-Key': user_AIO_KEY,
+                'X-AIO-Key': AIO_KEY,
             }
         })
 
