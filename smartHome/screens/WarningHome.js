@@ -12,6 +12,7 @@ import {
 
 // npm install @expo/vector-icons
 import { MaterialCommunityIcons, Entypo, FontAwesome } from "@expo/vector-icons"
+import { images } from "../constants";
 
 const WarningHome = ({ navigation }) => {
 
@@ -22,7 +23,7 @@ const WarningHome = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
 
-            <Image source={{ uri: 'https://www.online-tech-tips.com/wp-content/uploads/2020/06/smarthome.jpeg' }}
+            <Image source={images.warningWall}
                 style={{
                     width: "80%",
                     height: "40%",

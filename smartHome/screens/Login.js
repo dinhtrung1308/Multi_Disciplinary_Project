@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {StyleSheet, Text, View, ImageBackground, Dimensions, TextInput, TouchableOpacity} from 'react-native';
 import { images } from '../constants';
 import appTheme from '../constants/theme';
 const windoWidth = Dimensions.get('window').width;
 
 function Login({navigation }) {
+
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <ImageBackground
@@ -20,6 +23,8 @@ function Login({navigation }) {
           placeholder={'Username'}
           placeholderTextColor={'rgba(255,255,255,0.7)'}
           underlineColorAndroid='transparent'
+          onChangeText={userName => setUserName(userName)}
+          defaultValue={userName}
          />
       </View>
 
@@ -30,18 +35,22 @@ function Login({navigation }) {
           secureTextEntry={true}
           placeholderTextColor={'rgba(255,255,255,0.7)'}
           underlineColorAndroid='transparent'
+          onChangeText={password => setPassword(userName)}
+          defaultValue={password}
          />
       </View>
 
       <TouchableOpacity
-        onPress={() => navigation.push('Home')} 
+        onPress={() => navigation.navigate('Home', {
+          userName : userName,
+        })} 
         style={styles.btnLogin}
         >
         <Text style={styles.text}>Login</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={() => navigation.push('SignUp')} 
+        onPress={() => navigation.navigate('SignUp')} 
         style={styles.btnSignUp}
         >
         <Text style={styles.text}>Sign Up</Text>

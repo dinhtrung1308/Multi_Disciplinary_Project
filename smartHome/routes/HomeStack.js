@@ -26,13 +26,14 @@ function DrawerContent({...props}){
 
 const homeDrawerStack = createDrawerNavigator();
   
-const TabScreen = () => {
+const TabScreen = ({ route, navigation }) => {
     return (
       <homeDrawerStack.Navigator
         drawerContent={props => <DrawerContent {...props} />}
       >
         <homeDrawerStack.Screen
           name="Home"
+          initialParams={{ params: route.params }}
           component={Home}
           options={{
             drawerIcon: ({focused,color,size}) => (

@@ -12,17 +12,13 @@ import {
 
 function ToggleButton({input}){ // the parameter has to be as the form {input}
     const [state, setState] = useState(false);
-
     const stateInput = () => {
         setState(!state);
     }
 
     return (
-        <TouchableOpacity
-            onPress={stateInput}
-            style={state ? styles.dateButtonOn : styles.dateButton}
-        >
-            {input}
+        <TouchableOpacity onPress={stateInput} style={state ? styles.dateButtonOn : styles.dateButton}>
+            <Text>{input}</Text>
         </TouchableOpacity>
     );
 }
@@ -33,18 +29,8 @@ const WarningSetup = () => {
     return (
         <SafeAreaView style={styles.container}>
 
-            <View style={{
-                marginTop: 30,
-                width: "60%",
-                alignItems: "flex-start"
-            }}>
-                <Text
-                    style={{
-                        paddingLeft: 1
-                    }}
-                >
-                    WARNING NAME
-                </Text>
+            <View style={{marginTop: 30, width: "60%", alignItems: "flex-start"}}>
+                <Text style={{paddingLeft: 1}}>WARNING NAME</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter warning name...">
@@ -66,7 +52,7 @@ const WarningSetup = () => {
                         }}
                     >
                         MAX
-                </Text>
+                    </Text>
                     <TextInput
                         style={styles.input}
                         placeholder="Enter max...">
@@ -74,13 +60,7 @@ const WarningSetup = () => {
                 </View>
 
                 <View>
-                    <Text
-                        style={{
-                            paddingLeft: 1
-                        }}
-                    >
-                        MIN
-                    </Text>
+                    <Text style={{paddingLeft: 1}}>MIN</Text>
                     <TextInput
                         style={styles.input}
                         placeholder="Enter min...">
@@ -88,26 +68,14 @@ const WarningSetup = () => {
                 </View>
             </View>
 
-            <View style={{ 
-                marginTop: 30,
-                width: "60%",
-                }}>
-                <Text
-                    style={{
-                        paddingLeft: 1
-                    }}
-                >
-                    SELECT DATE
-                    </Text>
-                <View style={{
-                    marginTop: 4,
-                    flexDirection: "row",
-                    width: "100%",
-                    justifyContent: "space-between"
-                }}>
+            <View style={{ marginTop: 30,width: "60%"}}>
+                <Text style={{ paddingLeft: 1}}>SELECT DATE</Text>
+                <View style={{ marginTop: 4, flexDirection: "row", width: "100%",justifyContent: "space-between"}}>
                     <ToggleButton input = {"Mon"}></ToggleButton>
                     <ToggleButton input = {"Tue"}></ToggleButton>
                     <ToggleButton input = {"Wed"}></ToggleButton>
+                </View>
+                <View style={{ marginTop: 5, flexDirection: "row", width: "100%", justifyContent: "space-between" }}>
                     <ToggleButton input = {"Thu"}></ToggleButton>
                     <ToggleButton input = {"Fri"}></ToggleButton>
                     <ToggleButton input = {"Sat"}></ToggleButton>
@@ -115,9 +83,7 @@ const WarningSetup = () => {
                 </View>
             </View>
 
-            <TouchableOpacity
-                style={styles.button}
-            >
+            <TouchableOpacity style={styles.button}>
                 <Text style={{ fontSize: 20, color: "white" }}>Add Warning</Text>
             </TouchableOpacity>
         </SafeAreaView>
@@ -128,7 +94,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#E5E4E2",
-        width: "100%",
+        // width: "100%",
         // justifyContent: "center",
         alignItems: "center",
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,

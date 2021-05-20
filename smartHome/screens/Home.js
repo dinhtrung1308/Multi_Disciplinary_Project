@@ -1,21 +1,78 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import {
     View,
     Text,
     StyleSheet,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert
 } from "react-native";
 import { Header, Left, Right, Icon, Body, Switch } from 'native-base';
 import { FONTS } from '../constants';
 import { Block } from '../components'
-function Home({ navigation }) {
-    
+import { ActivityIndicator } from 'react-native-paper';
+function Home({ route, navigation }) {
+
+    const user_AIO_KEY = 'aio_zjfC91U4h9G6wwcacGsFw0SeBSXC';
+
+    const [isGettingTemp, setGettingTemp] = React.useState(true);
+    const [temperature, setTemperature] = React.useState(31) 
+
     const [isLightOn, setLightSwitch] = React.useState(false);
     const [isBuzzerOn, setBuzzerSwitch] = React.useState(false);
 
+    const userName = route.params["params"]["userName"];
+    useEffect (() => {
+        return fetch("https://io.adafruit.com/api/v2/baodao811/feeds/bbc-temperature/data?limit=1", {
+            method: 'GET',
+            headers: {
+                'X-AIO-Key': user_AIO_KEY,
+            }
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                var startIdx = json[0]["value"].search("data") + 6;
+                var endIdx = json[0]["value"].indexOf("\"",startIdx+1);
+                var data = json[0]["value"].slice(startIdx+1,endIdx);
+                setTemperature(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+            .finally(() => setGettingTemp(false))
+            ;
+     })
+
     const LightChangeHandler = (value) => {
         setLightSwitch(value);
+        var on = 0;
+        var onStr = "OFF";
+        if (value) {
+            on = 1;
+            onStr = "ON";
+        }
+        fetch("https://io.adafruit.com/api/v2/baodao811/feeds/bbc-led/data", {
+      
+            method: "POST",
+        
+            body: JSON.stringify({ value: '{\"id\":\"1\",\"name\":\"LED\",\"data\":\"' + on +'\",\"unit\":\"\"}' }),
+
+            headers: {
+                'Content-Type': 'application/json',
+                'X-AIO-Key': user_AIO_KEY,
+            }
+        })
+
+            .then(response => response.json())
+    
+            .then(() => Alert.alert(
+                'Notification',
+                'Your LED has been turned ' + onStr,
+            ))
+        
+            .catch((error) => {
+                console.error(error);
+            })
     }
 
     const BuzzerChangeHandler = (value) => {
@@ -37,19 +94,25 @@ function Home({ navigation }) {
             <Block style={styles.dashboard}>
                 <Block column style={{ marginVertical: 14 * 2, }}>
                     <Text style={ {...FONTS.welcome} }>Welcome!</Text>
-                    <Text style={ {...FONTS.name} }>Duc Bao</Text>
+                    <Text style={ {...FONTS.name} }>{userName}</Text>
                 </Block>
 
                 <Block row style={{ paddingVertical: 10 }}>
-                    <Block flex={1.5} row style={{ alignItems: 'flex-end', }}>
-                        <Text style={{...FONTS.h1}}>34</Text>
+                    <Block flex={1.5} row style={{}}>
+                        {isGettingTemp ? <ActivityIndicator size="large" color="#b06f13"/> :
+                            <Text style={{ ...FONTS.h1 }}>{temperature}</Text>
+                        }
                         <Text h1 size={34} height={80} weight='600' spacing={0.1}>°C</Text>
                     </Block>
                     <Block flex={1} column>
-                        <Text caption>Humidity</Text>
+                        <Text caption>Temperature</Text>
                     </Block>
                 </Block>
-
+                <Block row>
+                    <TouchableOpacity style={ {marginLeft:30} } activeOpacity={0.5} onPress={ () => setGettingTemp(true) }>
+                        <Icon name='refresh' style={{ fontSize: 30, color: '#b06f13'}} />
+                    </TouchableOpacity>
+                </Block>
                 <ScrollView contentContainerStyle={styles.buttons} showsVerticalScrollIndicator={false}>
                     <Block column space="between">
                         <Block row space="around" style={{ marginVertical: 14 }}>

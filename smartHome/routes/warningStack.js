@@ -45,7 +45,7 @@ const WarningStack = createStackNavigator();
 
 const WarningTabStack = ({ navigation }) => {
     return (
-        <WarningStack.Navigator initialRouteName="WarningSelect" >
+        <WarningStack.Navigator initialRouteName="WarningHome" >
             <WarningStack.Screen name="WarningHome" component={WarningHome} />
             <WarningStack.Screen name="WarningSelect" component={WarningSelect} />
             <WarningStack.Screen name="WarningSetup" component={WarningSetup} />
