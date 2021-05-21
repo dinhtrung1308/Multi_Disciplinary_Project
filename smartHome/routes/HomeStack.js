@@ -15,7 +15,7 @@ function DrawerContent({...props}){
     <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#fff'}}>
       <Image source={images.logo} style={styles.logo} />
 
-      <Text style={styles.appText}>SHome</Text>
+      <Text style={styles.appText}>HOME MANAGER</Text>
       <Content>
         <DrawerItemList {...props} />
       </Content>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     borderRadius: 45
   },
   appText: {
-    fontSize: 30,
+    fontSize: 25,
     marginTop: 20,
     marginLeft: 20,
     fontWeight: "bold",

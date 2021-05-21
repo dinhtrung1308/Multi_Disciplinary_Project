@@ -14,7 +14,7 @@ function Login({navigation }) {
             style={styles.background}
             source={images.backgroundImg}>
       <View>
-        <Text style={styles.titleStyle}>SHOME</Text>
+        <Text style={styles.titleStyle}>HOME MANAGER</Text>
       </View>
 
       <View style={styles.inputContainer}>
@@ -66,8 +66,9 @@ const styles = StyleSheet.create({
       justifyContent: 'center'
   },
   titleStyle: {
-    color: 'gold',
-    fontSize: 40,
+    color: '#b06f13',
+    marginBottom: 10,
+    fontSize: 35,
     fontWeight: 'bold',
     fontFamily: appTheme.FONTS.largeTitle.fontFamily
   },

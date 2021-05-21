@@ -23,7 +23,7 @@ function Home({ route, navigation }) {
 
     const userName = route.params["params"]["userName"];
     useEffect (() => {
-        return fetch("https://io.adafruit.com/api/v2/baodao811/feeds/bbc-temperature/data?limit=1", {
+        return fetch("https://io.adafruit.com/api/v2/KaNology/feeds/bbc-temperature/data?limit=1", {
             method: 'GET',
             headers: {
                 'X-AIO-Key': AIO_KEY,
@@ -51,7 +51,7 @@ function Home({ route, navigation }) {
             on = 1;
             onStr = "ON";
         }
-        fetch("https://io.adafruit.com/api/v2/baodao811/feeds/bbc-led/data", {
+        fetch("https://io.adafruit.com/api/v2/KaNology/feeds/bbc-led/data", {
       
             method: "POST",
         
@@ -86,7 +86,7 @@ function Home({ route, navigation }) {
                     <Icon name="menu" style={{color: '#b06f13', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
                 </Left>
                 <Body style={ {flex:1} } >
-                    <Text style={ {color:'#b06f13', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }> SHome </Text>
+                    <Text style={ {color:'#b06f13', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }> Home </Text>
                 </Body>
                 <Right style={ {flex:1} } />
             </Header>
