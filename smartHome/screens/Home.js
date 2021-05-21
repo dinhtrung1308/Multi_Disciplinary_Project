@@ -7,11 +7,14 @@ import {
     TouchableOpacity,
     Alert
 } from "react-native";
+// https://reactnavigation.org/docs/getting-started
+// npm install native-base --save
 import { Header, Left, Right, Icon, Body, Switch } from 'native-base';
 import { FONTS } from '../constants';
 import { Block } from '../components'
+// npm install react-native-paper
 import { ActivityIndicator } from 'react-native-paper';
-import { AIO_KEY } from '@env';
+// import { AIO_KEY } from '@env';
 function Home({ route, navigation }) {
 
 
@@ -26,7 +29,7 @@ function Home({ route, navigation }) {
         return fetch("https://io.adafruit.com/api/v2/baodao811/feeds/bbc-temperature/data?limit=1", {
             method: 'GET',
             headers: {
-                'X-AIO-Key': AIO_KEY,
+                'X-AIO-Key': 'Input AIO here!!!',
             }
         })
             .then((response) => response.json())
@@ -59,7 +62,7 @@ function Home({ route, navigation }) {
 
             headers: {
                 'Content-Type': 'application/json',
-                'X-AIO-Key': AIO_KEY,
+                'X-AIO-Key': 'Input AIO here!!!',
             }
         })
 

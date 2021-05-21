@@ -9,7 +9,13 @@ import {
     StatusBar,
 } from "react-native";
 
-import { MaterialCommunityIcons, Entypo, Ionicons } from "@expo/vector-icons"
+// This is used for expo
+// import { MaterialCommunityIcons, Entypo, Ionicons } from "@expo/vector-icons"
+
+// npm install react-native-vector-icons
+import MaterialCommunityIcons from "react-native-vector-icons/dist/MaterialCommunityIcons"
+import Ionicons from "react-native-vector-icons/dist/Ionicons"
+import Entypo from "react-native-vector-icons/dist/Entypo"
 
 const WarningSelect = ({ navigation }) => {
 
@@ -21,7 +27,6 @@ const WarningSelect = ({ navigation }) => {
         <SafeAreaView style={styles.container}>
 
             <Text style={{
-                marginTop: 20,
                 fontSize: 30
             }}>Select Sensor</Text>
 
