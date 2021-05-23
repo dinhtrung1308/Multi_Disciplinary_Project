@@ -2,7 +2,7 @@ import React from "react";
 import {
     View,
     Text,
-    Button,
+    TouchableOpacity,
     Image,
     StyleSheet,
     SafeAreaView,
@@ -10,8 +10,11 @@ import {
     StatusBar,
 } from "react-native";
 
-// npm install @expo/vector-icons
-import { MaterialCommunityIcons, Entypo, FontAwesome } from "@expo/vector-icons"
+// npm install react-native-vector-icons
+import MaterialCommunityIcons from "react-native-vector-icons/dist/MaterialCommunityIcons"
+import Entypo from "react-native-vector-icons/dist/Entypo"
+import FontAwesome from "react-native-vector-icons/dist/FontAwesome"
+
 import { images } from "../constants";
 
 const WarningHome = ({ navigation }) => {
@@ -28,7 +31,7 @@ const WarningHome = ({ navigation }) => {
                     width: "80%",
                     height: "40%",
                     borderRadius: 20,
-                    marginTop: 50
+                    marginTop: 10
                 }}
             />
 
@@ -66,15 +69,20 @@ const WarningHome = ({ navigation }) => {
             </View>
 
             <View style = {{
-                marginTop: 30
+                marginTop: 40,
+                backgroundColor: "orange",
+                padding: 30,
+                borderRadius: 20
             }}>
-                <Button style = {{
-                    borderRadius: 40,
-                }} 
-                color="orange" 
-                title="+ Add Warning" 
+
+                <TouchableOpacity
                 onPress = {pressHandler}
-                />
+                >
+                    <Text style={{
+                        fontSize: 20,
+                        color: "white"
+                    }}>ADD WARNING</Text>
+                </TouchableOpacity>
             </View>
 
         </SafeAreaView>
