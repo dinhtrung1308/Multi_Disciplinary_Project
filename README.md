@@ -1,4 +1,18 @@
 # Multi_Disciplinary_Project
+
+## Back End (run the BE before FE)
+- To run the back end you have to install:
+  + **express**: npm install express
+  + **mongoose**: npm install mongoose
+  + **body parse**: npm install body-parser
+
+- The back end of the project is in the folder **smartHomeBackend** which includes:
+  + server.js: where we run the server connecting to the database
+  + models/SignUpModels.js: the schema for the user info
+
+- To run the server: **nodemon server.js**
+
+## Front End
 Smart Home application using React Native
 
 In order to run this project first you have to install:
