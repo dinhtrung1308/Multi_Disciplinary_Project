@@ -8,6 +8,28 @@ function Login({navigation }) {
 
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  
+  const onSubmit = () => {
+    const result = fetch('http://10.0.2.2:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password
+      })
+    }).then(res => res.json())
+      .then(result => {
+        if(result.status === "wrong"){
+          alert('Wrong username/password')
+        }
+        else{
+          alert('Login Success')
+          navigation.navigate('Home', { username: username })
+        }
+      })
+  }
 
   return (
     <ImageBackground
@@ -41,9 +63,7 @@ function Login({navigation }) {
       </View>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('Home', {
-          userName : userName,
-        })} 
+        onPress={() => onSubmit()}
         style={styles.btnLogin}
         >
         <Text style={styles.text}>Login</Text>
