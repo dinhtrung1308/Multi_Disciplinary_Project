@@ -3,10 +3,11 @@ const express = require('express')
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken')
 require("./models/SignUpModels")
 
 // npm install bcrypt
-const bcrypt = require('bcrypt')
+// const bcrypt = require('bcrypt');
 
 const User = mongoose.model("user")
 
@@ -19,15 +20,15 @@ mongoose.connect(mongURI, {
     useUnifiedTopology: true
 })
 
-mongoose.connection.on("connected",() =>{
+mongoose.connection.on("connected", () => {
     console.log("Connect Success")
 })
 
-mongoose.connection.on("error",(err) =>{
-    console.log("error",error)
+mongoose.connection.on("error", (err) => {
+    console.log("error", error)
 })
 
-app.post('/send-data',(req,res) =>{
+app.post('/send-data', (req, res) => {
 
     // const saltPassword = await bcrypt.genSalt(10) //generate salt for password
     // const securePassword = await bcrypt.hash(request.body.password, saltPassword) //more security for the password
@@ -39,22 +40,31 @@ app.post('/send-data',(req,res) =>{
         password: req.body.password
     })
     user.save()
-    .then(data =>{
-        console.log(data)
-        res.send(data)
-    }).catch(err => {
-        console.log(err)
-    })
+        .then(data => {
+            res.send(data)
+        }).catch(err => {
+            console.log(err)
+        })
 })
 
-app.get('/', (req, res) => {
-    User.find({})
-    .then(data => {
-        console.log(data)
-        res.send(data)
-    }).catch(err => {
-        console.log(err)
-    })
+app.post('/login', async (req, res) => {
+    var username = req.body.username
+    var password = req.body.password
+
+    User.findOne({ username: username })
+        .then(user => {
+            if(!user){
+                res.json({ status: 'wrong' })
+            }
+            if (user.password === password) {
+                res.send(user)
+            }
+            else{
+                res.json({ status: 'wrong' })
+            }
+        }).catch(err => {
+            console.log(err)
+        })
 })
 
 app.listen(3000, () => {
