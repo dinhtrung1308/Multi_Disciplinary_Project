@@ -4,10 +4,11 @@ import {
   createDrawerNavigator,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import { Home,Scene,Automatics,Warning,FAQs,Feedback} from '../screens';
+import { Home,Automatics,FAQs,Feedback} from '../screens';
 import { ScrollView } from 'react-native-gesture-handler';
 import { images } from '../constants';
-import WarningTabStack from './warningStack';
+import  WarningTabStack  from './warningStack';
+import  SceneTabStack  from './SceneStack';
 import {Content,Icon } from 'native-base';
 
 function DrawerContent({...props}){
@@ -43,7 +44,7 @@ const TabScreen = ({ route, navigation }) => {
         />
         <homeDrawerStack.Screen
           name="Scene"
-          component={Scene}
+          component={SceneTabStack}
           options={{
             drawerIcon: ({ focused, color, size }) => (
               <Icon name='bulb' style={{ fontSize: size, color: 'gold'}} />

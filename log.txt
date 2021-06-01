@@ -1,0 +1,109 @@
+commit 9f94b89a4d8edc18b5e1335b0dca3d6b6c34cb15
+Merge: a993f0b9 0df3703e
+Author: KaNology <an.le091000@gmail.com>
+Date:   Fri May 21 18:08:56 2021 +0700
+
+    Merge branch 'master' of https://github.com/ducbao811/Multi_Disciplinary_Project
+
+commit a993f0b9c9ee5d5eb3ce208c0a8d2a149298b740
+Author: KaNology <an.le091000@gmail.com>
+Date:   Fri May 21 18:08:39 2021 +0700
+
+    Warning Screen updates
+
+commit 0df3703e7b63bf95cccce0495f3968f62dedf3d6
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Fri May 21 15:43:18 2021 +0700
+
+    Change some style of text and Text inside tabs
+
+commit 52e030408e56924f33e4086f6f18ca682e3c37ed
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Fri May 21 03:39:02 2021 +0700
+
+    Adding functionality for hiding API Keys
+
+commit 56579eac2a968a155b85187a22c2633b709e0def
+Merge: 9ee43163 9349cb80
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Fri May 21 02:20:16 2021 +0700
+
+    .
+
+commit 9ee43163fa4e0924e16557004bcd064c4612bbf8
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Fri May 21 02:15:26 2021 +0700
+
+    Creating receiving and publishing data function
+
+commit f56d00d5ba630520ff8dfca57eec8b26d007db8a
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Fri May 21 02:01:16 2021 +0700
+
+    Adding function for receiving and publishing data to server
+
+commit 9349cb80f28f6cb8ccb0027a5e98222fd843fd3b
+Author: Trung <trungduong13082000@gmail.com>
+Date:   Fri May 21 00:10:16 2021 +0700
+
+    add FAQs and Feedback
+
+commit 238c2e0db7afae5eed0bf5ebaf7d4bd167f70757
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Thu May 20 19:20:16 2021 +0700
+
+    Design Basic UI for Homepage
+
+commit 03ee7583352049a53284d90fe7e5f248f3bb0dba
+Author: Trung <trungduong13082000@gmail.com>
+Date:   Thu May 20 18:29:05 2021 +0700
+
+    Add Feedback screen
+
+commit 35c1e029e6d5327482a5bca0f179c4857639cf5a
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Thu May 20 01:12:41 2021 +0700
+
+    Merging Warning Stack and Modifying sidebar for navigating in the app
+
+commit 9aaac663d3359e7b0cc12a5d1e0c6f9ba7ba2706
+Author: KaNology <an.le091000@gmail.com>
+Date:   Wed May 19 21:09:06 2021 +0700
+
+    Warning Screens and route
+    
+    Screens:
+    - WarningHome, WarningSelect, WarningSetup: UI for Warning
+    - Warning: Navigator for Warning screens
+    Routes:
+    warningStack: stack to navigate between Warning screens.
+
+commit c18d92ca866d2aa9a686df83abe28fc3490133e8
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Wed May 19 00:32:40 2021 +0700
+
+    Add Navigation routes
+
+commit 6abc8f64debb456f5e094a57c8f697e45e31339b
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Mon May 17 11:54:47 2021 +0700
+
+    Create Login Screen
+
+commit 7282e8bdd2b346f95fa61df1da209b46d7355d88
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Mon May 17 10:53:23 2021 +0700
+
+    Reset repository
+
+commit 987b35b95867dc11a2b706ad9517cf2dc2bfb11f
+Author: ducbao811 <47705177+ducbao811@users.noreply.github.com>
+Date:   Mon May 17 10:23:30 2021 +0700
+
+    Create README
+
+commit 3d18c9c9ff43c32a44bf8753f7b0149016d700f8
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Mon May 17 10:21:03 2021 +0700
+
+    First Commit: Create Login Screen

@@ -10,25 +10,29 @@ function Login({navigation }) {
   const [password, setPassword] = useState('');
   
   const onSubmit = () => {
-    const result = fetch('http://10.0.2.2:3000/login', {
+    fetch('http://127.0.0.1:3000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: username,
+        username: userName,
         password: password
       })
-    }).then(res => res.json())
+    }).then(res => res.json() )
       .then(result => {
+        console.log(result);
         if(result.status === "wrong"){
           alert('Wrong username/password')
         }
         else{
           alert('Login Success')
-          navigation.navigate('Home', { username: username })
+          navigation.navigate('Home', { username: userName })
         }
       })
+      .catch((error) => {
+        console.error(error);
+    })
   }
 
   return (
@@ -57,7 +61,7 @@ function Login({navigation }) {
           secureTextEntry={true}
           placeholderTextColor={'rgba(255,255,255,0.7)'}
           underlineColorAndroid='transparent'
-          onChangeText={password => setPassword(userName)}
+          onChangeText={password => setPassword(password)}
           defaultValue={password}
          />
       </View>

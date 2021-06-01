@@ -25,7 +25,7 @@ function SignUp({ navigation }) {
         // axios.post('http://localhost:4000/app/signup', registered)
         // .then(response => console.log(response.data))
 
-        fetch('http://10.0.2.2:3000/send-data', {
+        fetch('http://127.0.0.1:3000/send-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

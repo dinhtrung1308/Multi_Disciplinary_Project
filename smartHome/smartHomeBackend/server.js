@@ -47,10 +47,10 @@ app.post('/send-data', (req, res) => {
         })
 })
 
-app.post('/login', async (req, res) => {
-    var username = req.body.username
-    var password = req.body.password
-
+app.post('/login', function (req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    console.log("Login access");
     User.findOne({ username: username })
         .then(user => {
             if(!user){
@@ -69,7 +69,5 @@ app.post('/login', async (req, res) => {
 
 app.listen(3000, () => {
     console.log("Listening on 3000")
-})
-
-
+})      
 // npm run start: to run server
