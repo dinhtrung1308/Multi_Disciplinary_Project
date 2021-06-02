@@ -1,99 +1,69 @@
-import React, { useState } from "react";
-import { View, FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
-
+import React, {Component} from 'react';
+import {
+    StyleSheet,
+    SafeAreaView,
+    View,
+    Text,
+    Image,
+    TouchableOpacity
+} from 'react-native';
 import { Header, Left, Right, Icon, Body, Content } from 'native-base';
-import { FONTS } from '../constants';
-const DATA = [
-  {
-    id: "1",
-    title: "Question 1",
-  },
-  {
-    id: "2",
-    title: "Question 2",
-  },
-  {
-    id: "3",
-    title: "Question 3",
-  },
-  {
-    id: "4",
-    title: "Question 4",
-  },
-  {
-    id: "5",
-    title: "Question 5",
-  },
-  {
-    id: "6",
-    title: "Question 6",
-  },
-  {
-    id: "7",
-    title: "Question 7",
-  },
-];
+import {images, COLORS, FONTS, SIZES} from '../constants';
 
-const Item = ({ item, onPress, backgroundColor, textColor }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-    <Text style={[styles.title, textColor]}>{item.title}</Text>
-  </TouchableOpacity>
+/**
+ * Home screen
+ */
 
-);
 
-const FAQs = ({navigation}) => {
-  const [selectedId, setSelectedId] = useState(null);
+export  default class FAQs extends Component {
 
-  const renderItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? "#cc9960" : "#FFCC66";
-      const color = item.id === selectedId ? 'white' : 'black';
-      return (
-      <Item
-        item={item}
-        onPress={() => setSelectedId(item.id)}
-        backgroundColor={{ backgroundColor }}
-        textColor={{ color }}
-      />
-    );
-};
+    static navigationOptions = {
+        title: 'FAQs',
+    };
+    
 
-return (
-  <SafeAreaView style={styles.container}>
-    <View style={ {flex: 1} }>
-          <Header style={ {backgroundColor:'black'} }>
-              <Left style={ {flex:1} }>
-                  <Icon name="menu" style={{color: '#b06f13', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
-              </Left>
-              <Body style={ {flex:1} } >
-                  <Text style={ {color:'#b06f13', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }> FAQs </Text>
-              </Body>
-              <Right style={ {flex:1} } />
-          </Header>  
-    <FlatList
-      data={DATA}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-      extraData={selectedId}
-    />
-    </View>
-  </SafeAreaView>
-);
-};
+    render() {
 
+        const { navigate } = this.props.navigation;
+        
+
+        return (
+           
+                   
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor: '#F4A201' }}>
+           
+
+                <TouchableOpacity
+                    style={[styles.shadow, { marginTop: SIZES.padding * 2, width: '70%', height: 50, alignItems: 'center', justifyContent: 'center' }]}
+                    onPress={() => navigate('Chatbot')}
+                >
+
+                        <Text style={{ fontSize: 50}} >Start!</Text>
+
+                </TouchableOpacity>
+            </View>
+        
+        );
+
+    }
+    
+
+}
 
 const styles = StyleSheet.create({
-container: {
-  flex: 1,
-  marginTop: 0,
-},
-item: {
-  padding: 20,
-  marginVertical: 8,
-  marginHorizontal: 16,
-},
-title: {
-  fontSize: 12 ,
-},
-});
+    container: {
+        flex: 1,
+        backgroundColor: '#F4A201',
+    },
+    shadow: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
 
-export default FAQs; 
+        elevation: 5,
+    }
+});
