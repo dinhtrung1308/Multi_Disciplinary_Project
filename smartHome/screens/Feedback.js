@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
     StyleSheet,
@@ -11,21 +10,32 @@ import {
 import { Header, Left, Right, Icon, Body, Content } from 'native-base';
 import {images, COLORS, FONTS, SIZES} from '../constants';
 
+/**
+ * Home screen
+ */
 
 
-const Feedback = ({ navigation }) => {
+export default class Feedback extends React.Component {
 
-    // Render
+    static navigationOptions = {
+        title: 'Feedback',
+    };
+    
 
-    return (
-        <SafeAreaView style={styles.container}>
+    render() {
+
+        const { navigate } = this.props.navigation;
+        
+
+        return (
+            <SafeAreaView style={styles.container}>
             <View style={ {flex: 1} }>
                 <Header style={ {backgroundColor:'black'} }>
                     <Left style={ {flex:1} }>
                         <Icon name="menu" style={{color: '#b06f13', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
                     </Left>
                     <Body style={ {flex:1} } >
-                        <Text style={ {color:'#b06f13', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }>Scene</Text>
+                        <Text style={ {color:'#b06f13', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }>Feedback</Text>
                     </Body>
                     <Right style={ {flex:1} } />
                 </Header>
@@ -49,7 +59,7 @@ const Feedback = ({ navigation }) => {
 
                 <TouchableOpacity
                     style={[styles.shadow, { marginTop: SIZES.padding * 2, width: '70%', height: 50, alignItems: 'center', justifyContent: 'center' }]}
-                    onPress={() => navigation.navigate("Home")}
+                    onPress={() => navigate('FeedForm')}
                 >
 
                         <Text style={{ color: COLORS.yellowBrown, ...FONTS.h3 }}>Send!</Text>
@@ -57,8 +67,12 @@ const Feedback = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
-    );
-};
+        );
+
+    }
+    
+
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -77,5 +91,3 @@ const styles = StyleSheet.create({
         elevation: 5,
     }
 });
-
-export default Feedback;
