@@ -2,21 +2,65 @@ import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Form, Item, Input, Body, Text, CheckBox, Button,Alert} from 'native-base';
 
-
-
 /**
  * Profile screen
  */
-export default class FeedForm  extends React.Component {
+// export default class FeedForm  extends React.Component {
 
     
 
-    render() {
+//     render() {
 
-        const { navigate, state } = this.props.navigation;
+//         const { navigate, state } = this.props.navigation;
 
-        return (
-            <View style={styles.container}>
+//         return (
+//             <View style={styles.container}>
+//         <View style={styles.top}></View>
+
+//         <View style={styles.middle}>
+//           <Text style={styles.textContainer}>Every feedback will make us better !</Text>
+
+//           <View style={styles.formArea}>
+            
+//             <Form style={styles.mainForm}>
+//               <Item style={styles.formItems}>
+//                 <Input placeholder="Name" style={styles.Input} />
+//               </Item>
+//               <Item style={styles.formItems}>
+//                 <Input placeholder="Email" style={styles.Input} />
+//               </Item>
+//               <Item style={styles.formItems}>
+//                 <Input placeholder="Phone number" style={styles.Input} />
+//               </Item>
+//               <Item style={styles.formItems}>
+//                 <Input placeholder="Problem" style={styles.Input} />
+//               </Item>
+
+              
+//               <View style={styles.Button}>
+//                 <Button block style={styles.mainBtn}
+//                    onPress={() => navigate('Feedback')}
+                        
+//                     >
+//                   <Text style={styles.btnText}>Submit</Text>
+//                 </Button>
+//               </View>
+              
+            
+//             </Form>
+//           </View>
+//         </View>
+//         <View style={styles.bottom}></View>
+//       </View>
+//         );
+
+//     }
+
+// }
+
+function FeedForm({ navigation }) {
+  return (
+      <View style={styles.container}>
         <View style={styles.top}></View>
 
         <View style={styles.middle}>
@@ -41,7 +85,7 @@ export default class FeedForm  extends React.Component {
               
               <View style={styles.Button}>
                 <Button block style={styles.mainBtn}
-                   onPress={() => navigate('Feedback')}
+                   onPress={() => navigation.navigate('Feedback')}
                         
                     >
                   <Text style={styles.btnText}>Submit</Text>
@@ -54,10 +98,7 @@ export default class FeedForm  extends React.Component {
         </View>
         <View style={styles.bottom}></View>
       </View>
-        );
-
-    }
-
+    );
 }
 
 const styles = StyleSheet.create({
@@ -144,3 +185,5 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
 });
+
+export default FeedForm;

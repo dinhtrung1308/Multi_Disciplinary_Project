@@ -3,36 +3,42 @@ import {StyleSheet, Text, View, ImageBackground, Dimensions, TextInput, Touchabl
 import { images } from '../constants';
 import appTheme from '../constants/theme';
 const windoWidth = Dimensions.get('window').width;
+import {AuthContext} from "../components/Context"
+
 
 function Login({navigation }) {
 
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+
+  const {signIn} = React.useContext(AuthContext);
   
+
   const onSubmit = () => {
-    fetch('http://127.0.0.1:3000/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: userName,
-        password: password
-      })
-    }).then(res => res.json() )
-      .then(result => {
-        console.log(result);
-        if(result.status === "wrong"){
-          alert('Wrong username/password')
-        }
-        else{
-          alert('Login Success')
-          navigation.navigate('Home', { username: userName })
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-    })
+    // fetch('http://127.0.0.1:3000/login', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     username: userName,
+    //     password: password
+    //   })
+    // }).then(res => res.json() )
+    //   .then(result => {
+    //     console.log(result);
+    //     if(result.status === "wrong"){
+    //       alert('Wrong username/password')
+    //     }
+    //     else{
+    //       alert('Login Success')
+    //       navigation.navigate('Home', { username: userName })
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    // })
+    navigation.navigate('Home', { username: userName })
   }
 
   return (
@@ -67,7 +73,7 @@ function Login({navigation }) {
       </View>
 
       <TouchableOpacity
-        onPress={() => onSubmit()}
+        onPress={() => signIn()}
         style={styles.btnLogin}
         >
         <Text style={styles.text}>Login</Text>

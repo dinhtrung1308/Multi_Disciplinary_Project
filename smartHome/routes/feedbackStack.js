@@ -1,12 +1,10 @@
 // Libs
 import React from 'react';
-import { View, Text, Button } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-
+import { createStackNavigator } from '@react-navigation/stack';
+import { COLORS} from "../constants";
 // Components
 import Feedback from '../screens/Feedback';
-import Form from '../screens/Form';
+import FeedForm from '../screens/Form';
 
 /**
  * createStackNavigator
@@ -14,18 +12,35 @@ import Form from '../screens/Form';
  * Creates a stack of our routes.
  *
 */
-const Navigator = createStackNavigator({
-    Feedback: { screen: Feedback },
-    Form: { screen: Form},
-});
+const FeedbackStack = createStackNavigator();
 
-/**
- * createAppContainer
- *
- * Responsible for managing app state and linking
- * the top-level navigator to the app environment.
- *
-*/
-const Feedbackstack = createAppContainer(Navigator);
+const FeedbackTabStack = ({ navigation }) => {
+    return (
+        <FeedbackStack.Navigator initialRouteName="Feedback">
+            <FeedbackStack.Screen
+                name="Feedback"
+                component={Feedback}
+                options={{
+                    headerShown: false,
+                }}
+            />
 
-export default Feedbackstack;
+            <FeedbackStack.Screen
+                name="FeedbackForm"
+                component={FeedForm}
+                options={{
+                    headerTitle: 'Form',
+                    headerTitleAlign: 'center',
+                    headerTintColor: 'white',
+                    headerStyle: {
+                    backgroundColor: COLORS.black,
+                    },
+                }}
+            />
+
+        </FeedbackStack.Navigator>
+    );
+}
+
+
+export default FeedbackTabStack;

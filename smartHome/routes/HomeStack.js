@@ -8,7 +8,8 @@ import { Home,Automatics,FAQs,Feedback} from '../screens';
 import { ScrollView } from 'react-native-gesture-handler';
 import { images } from '../constants';
 import  WarningTabStack  from './warningStack';
-import  SceneTabStack  from './SceneStack';
+import SceneTabStack from './SceneStack';
+import FeedbackTabStack from './feedbackStack'
 import {Content,Icon } from 'native-base';
 
 function DrawerContent({...props}){
@@ -27,14 +28,14 @@ function DrawerContent({...props}){
 
 const homeDrawerStack = createDrawerNavigator();
   
-const TabScreen = ({ route, navigation }) => {
+const TabScreen = ({ navigation }) => {
     return (
       <homeDrawerStack.Navigator
+        initialRouteName= "Home"
         drawerContent={props => <DrawerContent {...props} />}
       >
         <homeDrawerStack.Screen
           name="Home"
-          initialParams={{ params: route.params }}
           component={Home}
           options={{
             drawerIcon: ({focused,color,size}) => (
@@ -80,7 +81,7 @@ const TabScreen = ({ route, navigation }) => {
         />
         <homeDrawerStack.Screen
           name="Feedback"
-          component={Feedback}
+          component={FeedbackTabStack}
           options={{
             drawerIcon: ({ focused, color, size }) => (
               <Icon name='md-chatbox' style={{ fontSize: size, color: 'gold' }} />

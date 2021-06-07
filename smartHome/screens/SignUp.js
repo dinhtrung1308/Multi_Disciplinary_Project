@@ -11,10 +11,14 @@ import {
 
 import { images } from '../constants';
 import appTheme from '../constants/theme';
+import {AuthContext} from '../components/Context'
+import { react } from '@babel/types';
 // npm install axios
 const windoWidth = Dimensions.get('window').width;
 
+
 function SignUp({ navigation }) {
+    const { signUp } = React.useContext(AuthContext);
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -48,6 +52,7 @@ function SignUp({ navigation }) {
         setEmail('')
         setUsername('')
         setPassword('')
+        signUp()
     };
 
     return (

@@ -10,12 +10,12 @@ import {
 // https://reactnavigation.org/docs/getting-started
 // npm install native-base --save
 import { Header, Left, Right, Icon, Body, Switch } from 'native-base';
-import { FONTS } from '../constants';
+import { FONTS,COLORS } from '../constants';
 import { Block } from '../components'
 // npm install react-native-paper
 import { ActivityIndicator } from 'react-native-paper';
 // import { AIO_KEY } from '@env';
-function Home({ route, navigation }) {
+function Home({ navigation }) {
 
 
     const [isGettingTemp, setGettingTemp] = React.useState(true);
@@ -23,8 +23,6 @@ function Home({ route, navigation }) {
 
     const [isLightOn, setLightSwitch] = React.useState(false);
     const [isBuzzerOn, setBuzzerSwitch] = React.useState(false);
-
-    const userName = route.params["params"]["userName"];
     useEffect (() => {
         return fetch("https://io.adafruit.com/api/v2/KaNology/feeds/bbc-temperature/data?limit=1", {
             method: 'GET',
@@ -84,7 +82,7 @@ function Home({ route, navigation }) {
 
     return (
         <View style={ {flex: 1} }>
-            <Header style={ {backgroundColor:'black'} }>
+            <Header style={ {backgroundColor:COLORS.black} }>
                 <Left style={ {flex:1} }>
                     <Icon name="menu" style={{color: '#b06f13', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
                 </Left>
@@ -97,7 +95,7 @@ function Home({ route, navigation }) {
             <Block style={styles.dashboard}>
                 <Block column style={{ marginVertical: 14 * 2, }}>
                     <Text style={ {...FONTS.welcome} }>Welcome!</Text>
-                    <Text style={ {...FONTS.name} }>{userName}</Text>
+                    <Text style={ {...FONTS.name} }>bill</Text>
                 </Block>
 
                 <Block row style={{ paddingVertical: 10 }}>

@@ -8,8 +8,6 @@ import WarningSetup from "./WarningSetup"
 import Automatics from "./Automatics"
 import FAQs from "./FAQs"
 import Feedback from "./Feedback"
-import Scene from "./Scene"
-
 export {
     Home,
     Login,
@@ -21,5 +19,4 @@ export {
     Automatics,
     FAQs,
     Feedback,
-    Scene
  }

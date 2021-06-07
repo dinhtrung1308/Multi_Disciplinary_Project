@@ -7,29 +7,37 @@
  */
 
 import React from 'react';
-import {Login,SignUp } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import TabScreen from './routes/HomeStack';
-
-const AuthStack = createStackNavigator();
-
+import AuthStackTab from './routes/AuthStack';
+import {AuthContext } from './components/Context'
 
 const App = () => {
+
+  const [userToken, setUserToken] = React.useState(null);
+
+  const authContext = React.useMemo(() => {
+    return {
+      signIn: () => {
+        setUserToken("some value")
+      },
+      signUp: () => {
+        setUserToken("some value")
+       },
+      signOut: () => {
+        setUserToken(null)
+       },
+    }   
+   })
+
   return (
-    <NavigationContainer>
-      <AuthStack.Navigator>
-        <AuthStack.Screen name="Login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
-        <AuthStack.Screen name="Home"
-          component={TabScreen}
-          options={{ headerShown: false }}
-        />
-        <AuthStack.Screen name="SignUp" component={SignUp} />
-      </AuthStack.Navigator>
-    </NavigationContainer>
+  <AuthContext.Provider value={authContext}>
+        <NavigationContainer>
+          {userToken ? (<TabScreen />) : (<AuthStackTab />)}
+        </NavigationContainer>
+    </AuthContext.Provider>
+    
   );
 }
 

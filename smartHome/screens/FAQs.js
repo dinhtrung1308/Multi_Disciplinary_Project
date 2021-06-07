@@ -38,7 +38,7 @@ export  default class FAQs extends Component {
                     onPress={() => navigate('Chatbot')}
                 >
 
-                        <Text style={{ fontSize: 50}} >Start!</Text>
+                        <Text style={{ fontSize: 45}} >Start!</Text>
 
                 </TouchableOpacity>
             </View>
