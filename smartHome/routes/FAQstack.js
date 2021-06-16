@@ -8,32 +8,43 @@
 
 // Libs
 import React from 'react';
-import { View, Text, Button } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 // Components
 import FAQs from '../screens/FAQs';
 import Chatbot from '../screens/Chatbot';
+import { COLORS } from '../constants';
 
-/**
- * createStackNavigator
- *
- * Creates a stack of our routes.
- *
-*/
-const Navigator = createStackNavigator({
-    FAQs: { screen: FAQs },
-    Chatbot: { screen: Chatbot },
-});
 
-/**
- * createAppContainer
- *
- * Responsible for managing app state and linking
- * the top-level navigator to the app environment.
- *
-*/
-const FAQstack = createAppContainer(Navigator);
+const FaqStack = createStackNavigator();
 
-export default FAQstack;
+const FaqTabStack = ({ navigation }) => {
+    return (
+        <FaqStack.Navigator initialRouteName="Faq">
+            <FaqStack.Screen
+                name="Faq"
+                component={FAQs}
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+            <FaqStack.Screen
+                name="Chatbot"
+                component={Chatbot}
+                options={{
+                    headerTitle: 'Chat',
+                    headerTitleAlign: 'center',
+                    headerTintColor: 'white',
+                    headerStyle: {
+                    backgroundColor: COLORS.black,
+                    },
+                }}
+            />
+
+        </FaqStack.Navigator>
+    );
+}
+
+
+export default FaqTabStack;

@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, StyleSheet,Image } from 'react-native';
 import {
   createDrawerNavigator,
+  DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import { Home,Automatics,FAQs,Feedback} from '../screens';
@@ -11,8 +12,13 @@ import  WarningTabStack  from './warningStack';
 import SceneTabStack from './SceneStack';
 import FeedbackTabStack from './feedbackStack'
 import {Content,Icon } from 'native-base';
+import FaqTabStack from './FAQstack';
+import {AuthContext} from "../components/Context"
 
-function DrawerContent({...props}){
+function DrawerContent({ ...props }) {
+  
+  const {signOut} = React.useContext(AuthContext);
+
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#fff'}}>
       <Image source={images.logo} style={styles.logo} />
@@ -20,6 +26,11 @@ function DrawerContent({...props}){
       <Text style={styles.appText}>HOME MANAGER</Text>
       <Content>
         <DrawerItemList {...props} />
+        <DrawerItem
+          onPress={()=>signOut()}
+          label="Sign Out"
+          icon= {({ focused, color, size }) => <Icon name='md-exit' style={{ fontSize: size, color: 'gold'}} />}
+        />
       </Content>
     </ScrollView>
   );
@@ -72,7 +83,7 @@ const TabScreen = ({ navigation }) => {
         />
         <homeDrawerStack.Screen
           name="FAQs"
-          component={FAQs}
+          component={FaqTabStack}
           options={{
             drawerIcon: ({ focused, color, size }) => (
               <Icon name='book' style={{ fontSize: size, color: 'gold' }} />

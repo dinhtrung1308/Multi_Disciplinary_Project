@@ -14,6 +14,10 @@ target 'smartHome' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'react-native-dialogflow', :path => '../node_modules/react-native-dialogflow'
+
+  pod 'react-native-voice', :path => '../node_modules/react-native-voice'
+
   target 'smartHomeTests' do
     inherit! :complete
     # Pods for testing

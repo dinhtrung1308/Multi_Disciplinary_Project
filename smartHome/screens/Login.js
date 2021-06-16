@@ -15,30 +15,28 @@ function Login({navigation }) {
   
 
   const onSubmit = () => {
-    // fetch('http://127.0.0.1:3000/login', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //     username: userName,
-    //     password: password
-    //   })
-    // }).then(res => res.json() )
-    //   .then(result => {
-    //     console.log(result);
-    //     if(result.status === "wrong"){
-    //       alert('Wrong username/password')
-    //     }
-    //     else{
-    //       alert('Login Success')
-    //       navigation.navigate('Home', { username: userName })
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    // })
-    navigation.navigate('Home', { username: userName })
+    fetch('http://127.0.0.1:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: userName,
+        password: password
+      })
+    }).then(res => res.json() )
+      .then(result => {
+        console.log(result);
+        if(result.status === "wrong"){
+          alert('Wrong username/password')
+        }
+        else{
+          signIn();
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      })
   }
 
   return (
@@ -73,7 +71,7 @@ function Login({navigation }) {
       </View>
 
       <TouchableOpacity
-        onPress={() => signIn()}
+        onPress={() => onSubmit()}
         style={styles.btnLogin}
         >
         <Text style={styles.text}>Login</Text>
