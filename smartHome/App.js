@@ -6,39 +6,41 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import TabScreen from './routes/HomeStack';
-import AuthStackTab from './routes/AuthStack';
-import {AuthContext } from './components/Context'
-
-const App = () => {
-
-  const [userToken, setUserToken] = React.useState(null);
-
-  const authContext = React.useMemo(() => {
-    return {
-      signIn: () => {
-        setUserToken("some value")
-      },
-      signUp: () => {
-        setUserToken("some value")
+ import React from 'react';
+ import { NavigationContainer } from '@react-navigation/native';
+ import { createStackNavigator } from '@react-navigation/stack';
+ import TabScreen from './routes/HomeStack';
+ import AuthStackTab from './routes/AuthStack';
+ import {AuthContext} from './components/Context'
+ 
+ const App = () => {
+ 
+   const [userToken, setUserToken] = React.useState(null);
+  //  const [userName, setUserName] = React.useState('');
+ 
+   const authContext = React.useMemo(() => {
+     return {
+       signIn: (userToken) => {
+         setUserToken(userToken)
        },
-      signOut: () => {
-        setUserToken(null)
-       },
-    }   
-   })
-
-  return (
-  <AuthContext.Provider value={authContext}>
-        <NavigationContainer>
-          {userToken ? (<TabScreen />) : (<AuthStackTab />)}
-        </NavigationContainer>
-    </AuthContext.Provider>
-    
-  );
-}
-
-export default App;
+       signUp: () => {
+         setUserToken("some value")
+        },
+       signOut: () => {
+         setUserToken(null)
+        },
+     }   
+    })
+ 
+   return (
+   <AuthContext.Provider value={authContext}>
+         <NavigationContainer>
+           {userToken ? (<TabScreen props={{userToken: userToken}} />) : (<AuthStackTab />)}
+         </NavigationContainer>
+     </AuthContext.Provider>
+     
+   );
+ }
+ 
+ export default App;
+ 
