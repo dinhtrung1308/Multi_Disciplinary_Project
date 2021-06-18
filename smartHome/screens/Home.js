@@ -23,6 +23,9 @@ function Home({ navigation }) {
 
     const [isLightOn, setLightSwitch] = React.useState(false);
     const [isBuzzerOn, setBuzzerSwitch] = React.useState(false);
+    
+    const userName = route.params["params"]["userToken"];
+    
     useEffect (() => {
         return fetch("https://io.adafruit.com/api/v2/KaNology/feeds/bbc-temperature/data?limit=1", {
             method: 'GET',
@@ -95,7 +98,7 @@ function Home({ navigation }) {
             <Block style={styles.dashboard}>
                 <Block column style={{ marginVertical: 14 * 2, }}>
                     <Text style={ {...FONTS.welcome} }>Welcome!</Text>
-                    <Text style={ {...FONTS.name} }>bill</Text>
+                    <Text style={ {...FONTS.name} }>{userName}</Text>
                 </Block>
 
                 <Block row style={{ paddingVertical: 10 }}>
