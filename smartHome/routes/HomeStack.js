@@ -39,7 +39,7 @@ function DrawerContent({ ...props }) {
 
 const homeDrawerStack = createDrawerNavigator();
   
-const TabScreen = ({ navigation }) => {
+const TabScreen = ({ props }) => {
     return (
       <homeDrawerStack.Navigator
         initialRouteName= "Home"
