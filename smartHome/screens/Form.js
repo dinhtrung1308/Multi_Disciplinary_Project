@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Form, Item, Input, Body, Text, CheckBox, Button,Alert} from 'native-base';
 
@@ -59,6 +59,38 @@ import {Form, Item, Input, Body, Text, CheckBox, Button,Alert} from 'native-base
 // }
 
 function FeedForm({ navigation }) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [problem, setProblem] = useState('');
+  const onSubmit = () => {
+    fetch('http://127.0.0.1:3000/form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        phoneNumber,
+        problem
+
+
+      })
+      }).then(res => res.json())
+            .then(data => {
+                console.log(data)
+                navigation.navigate('Feedback')
+            }).catch(err => {
+                console.log("error", err)
+            })
+
+        setName('')
+        setEmail('')
+        setPhoneNumber('')
+        setProblem('')
+    
+  };
   return (
       <View style={styles.container}>
         <View style={styles.top}></View>
@@ -70,22 +102,26 @@ function FeedForm({ navigation }) {
             
             <Form style={styles.mainForm}>
               <Item style={styles.formItems}>
-                <Input placeholder="Name" style={styles.Input} />
+                <Input placeholder="Name" style={styles.Input} onChangeText={name => setName(name)}
+          defaultValue={name} />
               </Item>
               <Item style={styles.formItems}>
-                <Input placeholder="Email" style={styles.Input} />
+                <Input placeholder="Email" style={styles.Input} onChangeText={email => setEmail(email)}
+          defaultValue={email}  />
               </Item>
               <Item style={styles.formItems}>
-                <Input placeholder="Phone number" style={styles.Input} />
+                <Input placeholder="Phone number" style={styles.Input} onChangeText={phoneNumber => setPhoneNumber(phoneNumber)}
+          defaultValue={phoneNumber} />
               </Item>
               <Item style={styles.formItems}>
-                <Input placeholder="Problem" style={styles.Input} />
+                <Input placeholder="Problem" style={styles.Input} onChangeText={problem => setProblem(problem)}
+          defaultValue={problem} />
               </Item>
 
               
               <View style={styles.Button}>
                 <Button block style={styles.mainBtn}
-                   onPress={() => navigation.navigate('Feedback')}
+                   onPress={() => onSubmit()}
                         
                     >
                   <Text style={styles.btnText}>Submit</Text>
