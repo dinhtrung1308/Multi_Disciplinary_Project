@@ -67,6 +67,8 @@
 		F881A7355DFC495E9E44C5CF /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F0E1B72DE438E824414A7 /* FontAwesome.ttf */; };
 		F88EC0C1858A41DC88F5D27E /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B772162E6C4424C9FBBE19E /* Foundation.ttf */; };
 		FD0A43CFED004C4A99F5044B /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADD0BD45EE294838A047FF80 /* FontAwesome5_Brands.ttf */; };
+		D3CDD7C7F92F46C98F1078C2 /* PatrickHand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54EAD276794C478992C21C6E /* PatrickHand-Regular.ttf */; };
+		594488B48144424699E2DE1C /* patrickHand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96E6D67A3E2D42A2ABB23B17 /* patrickHand.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,8 @@
 		F5AA3C95C39E49FC8CF481F1 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		FB520D0CC1B04017AA3F6E52 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		FBC6AC63419D449B8992EB09 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		54EAD276794C478992C21C6E /* PatrickHand-Regular.ttf */ = {isa = PBXFileReference; name = "PatrickHand-Regular.ttf"; path = "../assets/fonts/PatrickHand-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		96E6D67A3E2D42A2ABB23B17 /* patrickHand.ttf */ = {isa = PBXFileReference; name = "patrickHand.ttf"; path = "../assets/fonts/patrickHand.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +262,8 @@
 				9BD2C2A2EC144D1F8A62933C /* rubicon-icon-font.ttf */,
 				48E9FB95F89842CFACAC0FF7 /* SimpleLineIcons.ttf */,
 				3114C47CF16649CCB8F64E78 /* Zocial.ttf */,
+				54EAD276794C478992C21C6E /* PatrickHand-Regular.ttf */,
+				96E6D67A3E2D42A2ABB23B17 /* patrickHand.ttf */,
 			);
 			name = Resources;
 			path = "";
@@ -466,6 +472,8 @@
 				CDE1B393C3B64DD98DD74F12 /* rubicon-icon-font.ttf in Resources */,
 				04F0038B69214FA98969B020 /* SimpleLineIcons.ttf in Resources */,
 				47137525109D4424AC64DD2E /* Zocial.ttf in Resources */,
+				D3CDD7C7F92F46C98F1078C2 /* PatrickHand-Regular.ttf in Resources */,
+				594488B48144424699E2DE1C /* patrickHand.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

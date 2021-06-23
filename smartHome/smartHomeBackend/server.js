@@ -4,14 +4,12 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken')
-require("./models/SignUpModels")
+require("./models/user.model")
 
 // npm install bcrypt
 // const bcrypt = require('bcrypt');
 
 const User = mongoose.model("user")
-
-app.use(bodyParser.json())
 
 const mongURI = "mongodb+srv://KaNology:KaNology@cluster0.m9ezz.mongodb.net/mytable?retryWrites=true&w=majority"
 
@@ -67,7 +65,11 @@ app.post('/login', function (req, res) {
         })
 })
 
+// Handler
+app.use('/api/user', require('./api/user'));
+app.use('/api/scene', require('./api/scene'));
+app.use('/api/action', require('./api/action'));
+
 app.listen(3000, () => {
     console.log("Listening on 3000")
-})      
-// npm run start: to run server
+});

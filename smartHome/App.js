@@ -11,12 +11,11 @@
  import { createStackNavigator } from '@react-navigation/stack';
  import TabScreen from './routes/HomeStack';
  import AuthStackTab from './routes/AuthStack';
- import {AuthContext} from './components/Context'
- 
- const App = () => {
+import { AuthContext } from './components/Context';
+  
+const App = () => {
  
    const [userToken, setUserToken] = React.useState(null);
-  //  const [userName, setUserName] = React.useState('');
  
    const authContext = React.useMemo(() => {
      return {

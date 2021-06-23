@@ -8,6 +8,7 @@ import WarningSetup from "./WarningSetup"
 import Automatics from "./Automatics"
 import FAQs from "./FAQs"
 import Feedback from "./Feedback"
+import SplashScreen from "./SplashScreen"
 export {
     Home,
     Login,
@@ -19,4 +20,5 @@ export {
     Automatics,
     FAQs,
     Feedback,
+    SplashScreen
  }

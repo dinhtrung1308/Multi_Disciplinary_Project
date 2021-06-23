@@ -71,6 +71,7 @@ export const FONTS = {
     body3: { fontFamily: "Roboto-Regular", fontSize: SIZES.body3, lineHeight: 22 },
     body4: { fontFamily: "Roboto-Regular", fontSize: SIZES.body4, lineHeight: 22 },
     body5: { fontFamily: "Roboto-Regular", fontSize: SIZES.body5, lineHeight: 22 },
+    splash: { fontFamily: "patrickHand", fontSize: 40, color:"white" }
 };
 
 const appTheme = { COLORS, SIZES, FONTS };
