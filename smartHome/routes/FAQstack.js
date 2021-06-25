@@ -11,8 +11,8 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 // Components
-import FAQs from '../screens/FAQs';
-import Chatbot from '../screens/Chatbot';
+import FAQs from '../screens/FAQ/FAQs';
+import Chatbot from '../screens/FAQ/Chatbot';
 import { COLORS } from '../constants';
 
 

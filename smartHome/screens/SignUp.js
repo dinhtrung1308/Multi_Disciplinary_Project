@@ -6,7 +6,8 @@ import {
     ImageBackground,
     TouchableOpacity,
     TextInput,
-    Dimensions
+    Dimensions,
+    Alert
 } from "react-native";
 
 import { images } from '../constants';
@@ -29,7 +30,7 @@ function SignUp({ navigation }) {
         // axios.post('http://localhost:4000/app/signup', registered)
         // .then(response => console.log(response.data))
 
-        fetch('http://127.0.0.1:3000/send-data', {
+        fetch('http://127.0.0.1:3000/api/user/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -43,6 +44,7 @@ function SignUp({ navigation }) {
         }).then(res => res.json())
             .then(data => {
                 console.log(data)
+                Alert.alert('Register Successful.')
                 navigation.navigate('Login')
             }).catch(err => {
                 console.log("error", err)
@@ -111,7 +113,7 @@ function SignUp({ navigation }) {
                         secureTextEntry={true}
                         placeholderTextColor={'rgba(255,255,255,0.7)'}
                         underlineColorAndroid='transparent'
-                        onChangeText={password => setPassword(username)}
+                        onChangeText={password => setPassword(password)}
                         defaultValue={password}
                     />
                 </View>

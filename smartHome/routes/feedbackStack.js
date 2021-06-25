@@ -3,8 +3,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { COLORS} from "../constants";
 // Components
-import Feedback from '../screens/Feedback';
-import FeedForm from '../screens/Form';
+import { Feedback, FeedForm } from '../screens/Feedback';
 
 /**
  * createStackNavigator

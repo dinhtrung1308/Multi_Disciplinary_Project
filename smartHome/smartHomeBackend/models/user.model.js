@@ -10,11 +10,11 @@ const userSchema = mongoose.Schema({
     },
     firstName: {
         type: String,
-        required: true
+        required: false
     },
     lastName: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
@@ -22,15 +22,12 @@ const userSchema = mongoose.Schema({
     },
     phoneNumber: {
         type: String,
-        required: true
+        required: false
     },
-    sceneList: [{type: mongoose.Schema.Types.ObjectId,ref: 'Scene'}]
+    date:{
+        type:Date,
+        default:Date.now
+    }
 })
-
-userSchema.method("toJSON", function() {
-    const { __v, _id, ...object } = this.toObject();
-    object.id = _id;
-    return object;
-  });
 
 module.exports = mongoose.model('User', userSchema);

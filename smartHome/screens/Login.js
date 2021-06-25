@@ -15,7 +15,7 @@ function Login({navigation }) {
   
 
   const onSubmit = () => {
-    fetch('http://127.0.0.1:3000/login', {
+    fetch('http://127.0.0.1:3000/api/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ function Login({navigation }) {
           alert('Wrong username/password')
         }
         else{
-          signIn();
+          signIn(result._id);
         }
       })
       .catch((error) => {

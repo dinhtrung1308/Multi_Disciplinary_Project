@@ -9,18 +9,30 @@ import {
     StatusBar,
 } from "react-native";
 
-// This is used for expo
-// import { MaterialCommunityIcons, Entypo, Ionicons } from "@expo/vector-icons"
-
 // npm install react-native-vector-icons
 import MaterialCommunityIcons from "react-native-vector-icons/dist/MaterialCommunityIcons"
 import Ionicons from "react-native-vector-icons/dist/Ionicons"
 import Entypo from "react-native-vector-icons/dist/Entypo"
 
-const WarningSelect = ({ navigation }) => {
+const WarningSelect = ({ navigation, route }) => {
 
-    const pressHandler = () => {
-        navigation.navigate('WarningSetup')
+    console.log('WarningSelect')
+
+    const userToken = route.params.userToken
+
+    const LightSensor = () => {
+        navigation.pop()
+        navigation.navigate('WarningSetup', {userToken: userToken, sensorType: "light"})
+    }
+
+    const HeatSensor = () => {
+        navigation.pop()
+        navigation.navigate('WarningSetup', {userToken: userToken, sensorType: "heat"})
+    }
+    
+    const GasSensor = () => {
+        navigation.pop()
+        navigation.navigate('WarningSetup', {userToken: userToken, sensorType: "gas"})
     }
 
     return (
@@ -46,7 +58,7 @@ const WarningSelect = ({ navigation }) => {
                     justifyContent: "center",
                     padding: 10,
                 }}
-                onPress = {pressHandler}>
+                onPress = {LightSensor}>
                     <MaterialCommunityIcons
                         name='lightbulb-on-outline'
                         size={80}
@@ -67,7 +79,7 @@ const WarningSelect = ({ navigation }) => {
                     justifyContent: "center",
                     padding: 10,
                 }}
-                onPress = {pressHandler}>
+                onPress = {HeatSensor}>
                     <Ionicons
                         name='md-thermometer-outline'
                         size={80}
@@ -88,7 +100,7 @@ const WarningSelect = ({ navigation }) => {
                     justifyContent: "center",
                     padding: 10,
                 }}
-                onPress = {pressHandler}>
+                onPress = {GasSensor}>
                     <Entypo
                         name='air'
                         size={80}

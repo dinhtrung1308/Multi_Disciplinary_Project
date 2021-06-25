@@ -7,7 +7,8 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { Header, Left, Right, Icon, Body, Content } from 'native-base';
-import {images, COLORS, FONTS, SIZES} from '../constants';
+
+import {images, COLORS, FONTS, SIZES} from '../../constants';
 
 /**
  * Home screen
