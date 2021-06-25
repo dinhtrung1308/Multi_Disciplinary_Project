@@ -21,6 +21,7 @@ In order to run this project first you have to install:
   + **Node.js**: this will install **npm** for you
   + **React-native**: npm install -g react-native-cli
   + **Android Studio**: install the emulator
+  
   **Note:** remember that we are using **react-native** not expo.
 
 - Create your own project: 
@@ -39,14 +40,22 @@ In order to run this project first you have to install:
   + Follow the directions of following link: https://reactnavigation.org/docs/getting-started/
   + npm install native-base --save
   + npm install react-native-paper
+  + npm install @react-navigation/stack
+  + npm install @react-navigation/drawer
+  + npm install styled-components
+  + npm install react-native-dialogflow
+  + npm install react-native-gifted-chat --save
+  + npm install styled-system
 
 - Remember to run the emulator on Android Studio.
 
 - Finally install the packages onto your app:
   + npm install
   + react-native run-android
+  
   **Note:** this for Android
 
 If your project fails to connect to the emulator.
-- react-native doctor
+- **react-native doctor**
+
 After that let it fixes the problem, restart the computer and run the app again.
