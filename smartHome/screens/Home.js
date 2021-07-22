@@ -15,6 +15,8 @@ import { Block } from '../components'
 // npm install react-native-paper
 import { ActivityIndicator } from 'react-native-paper';
 // import { AIO_KEY } from '@env';
+import LinearGradient from 'react-native-linear-gradient';
+// import LinearGradient
 function Home({ navigation }) {
 
 
@@ -94,19 +96,20 @@ function Home({ navigation }) {
                 </Body>
                 <Right style={ {flex:1} } />
             </Header>
-            
+            {/* Add linear background color*/}
+            <LinearGradient colors={['#FFFFFF', '#efefbb', '#fbc9a0']} style={styles.body}>
             <Block style={styles.dashboard}>
                 <Block column style={{ marginVertical: 14 * 2, }}>
                     <Text style={ {...FONTS.welcome} }>Welcome!</Text>
                     <Text style={ {...FONTS.name} }>{userName}</Text>
                 </Block>
 
-                <Block row style={{ paddingVertical: 10 }}>
+                <Block row style={{ paddingVertical: 30 }}>
                     <Block flex={1.5} row style={{}}>
                         {isGettingTemp ? <ActivityIndicator size="large" color="#b06f13"/> :
                             <Text style={{ ...FONTS.h1 }}>{temperature}</Text>
                         }
-                        <Text h1 size={34} height={80} weight='600' spacing={0.1}>°C</Text>
+                        <Text h1 size={44} height={80} weight='600' spacing={0.1}>°C</Text>
                     </Block>
                     <Block flex={1} column>
                         <Text caption>Temperature</Text>
@@ -119,45 +122,122 @@ function Home({ navigation }) {
                 </Block>
                 <ScrollView contentContainerStyle={styles.buttons} showsVerticalScrollIndicator={false}>
                     <Block column space="between">
-                        <Block row space="around" style={{ marginVertical: 14 }}>
-                            
-                            <Block center middle style={styles.button}>
-                                <Icon name='bulb' style={{ fontSize: 38, color: '#b06f13'}} />
-                                <Text
-                                    style={{ marginTop: 24 * 0.5, color: '#b06f13' }}
+                           <Block row space="around" style={{ marginVertical: 50 }}>
+                                <TouchableOpacity
+                                    activeOpacity={0.8}
                                 >
-                                    LED
-                                </Text>
-                            </Block>
-                    
-                            <Block center middle style={styles.button}>
-                                <Icon name='notifications' style={{ fontSize: 38, color: '#b06f13'}} />
-                                <Text
-                                    style={{ marginTop: 24 * 0.5, color: '#b06f13' }}
+                                    <Block center middle style={styles.button}>
+                                    <Image source={require('../assets/images/bulb.png')} 
+                    style={{width: 50, height: 50}} />
+                                    <Text
+                                        button
+                                        style={{ marginTop: 14 * 0.5 }}
+                                    >
+                                        Led
+                                    </Text>
+                                    </Block>
+                                </TouchableOpacity>
+              
+                                <TouchableOpacity
+                                    activeOpacity={0.8}
                                 >
-                                    Buzzer
-                                </Text>
+                                    <Block center middle style={styles.button}>
+                                    <Image source={require('../assets/images/buzzer.png')} 
+                    style={{width: 50, height: 50}} />
+                                    <Text
+                                        button
+                                        style={{ marginTop: 14 * 0.5 }}
+                                    >
+                                        Buzzer
+                                    </Text>
+                                    
+                                    </Block>
+                                </TouchableOpacity>
+              
                             </Block>
-
-                        </Block>
-                        
-                        <Block row space="around">
-                            
-                            <Block center middle>
-                                <Switch value={isLightOn}  onValueChange={ (value) => LightChangeHandler(value) }></Switch>
-                            </Block>
-                        
-                            <Block center middle>
-                                <Switch value={isBuzzerOn } onValueChange={ (value) => BuzzerChangeHandler(value) }></Switch>
-                            </Block>
-                        </Block>
                     </Block>
                 
                 </ScrollView>
             
             </Block>
+         </LinearGradient>
 
         </View>
+
+        {/*  <View style={ {flex: 1} }>
+            <Header style={ {backgroundColor:COLORS.black} }>
+                 <Left style={ {flex:1} }>
+        //             <Icon name="menu" style={{color: '#b06f13', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
+        //         </Left>
+        //         <Body style={ {flex:1} } >
+        //             <Text style={ {color:'#b06f13', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }> Home </Text>
+        //         </Body>
+        //         <Right style={ {flex:1} } />
+        //     </Header>
+            
+        //     <Block style={styles.dashboard}>
+        //         <Block column style={{ marginVertical: 14 * 2, }}>
+        //             <Text style={ {...FONTS.welcome} }>Welcome!</Text>
+        //             <Text style={ {...FONTS.name} }>{userName}</Text>
+        //         </Block>
+
+        //         <Block row style={{ paddingVertical: 10 }}>
+        //             <Block flex={1.5} row style={{}}>
+        //                 {isGettingTemp ? <ActivityIndicator size="large" color="#b06f13"/> :
+        //                     <Text style={{ ...FONTS.h1 }}>{temperature}</Text>
+        //                 }
+        //                 <Text h1 size={34} height={80} weight='600' spacing={0.1}>°C</Text>
+        //             </Block>
+        //             <Block flex={1} column>
+        //                 <Text caption>Temperature</Text>
+        //             </Block>
+        //         </Block>
+        //         <Block row>
+        //             <TouchableOpacity style={ {marginLeft:30} } activeOpacity={0.5} onPress={ () => setGettingTemp(true) }>
+        //                 <Icon name='refresh' style={{ fontSize: 30, color: '#b06f13'}} />
+        //             </TouchableOpacity>
+        //         </Block>
+        //         <ScrollView contentContainerStyle={styles.buttons} showsVerticalScrollIndicator={false}>
+        //             <Block column space="between">
+        //                 <Block row space="around" style={{ marginVertical: 14 }}>
+                            
+        //                     <Block center middle style={styles.button}>
+        //                         <Icon name='bulb' style={{ fontSize: 38, color: '#b06f13'}} />
+        //                         <Text
+        //                             style={{ marginTop: 24 * 0.5, color: '#b06f13' }}
+        //                         >
+        //                             LED
+        //                         </Text>
+        //                     </Block>
+                    
+        //                     <Block center middle style={styles.button}>
+        //                         <Icon name='notifications' style={{ fontSize: 38, color: '#b06f13'}} />
+        //                         <Text
+        //                             style={{ marginTop: 24 * 0.5, color: '#b06f13' }}
+        //                         >
+        //                             Buzzer
+        //                         </Text>
+        //                     </Block>
+
+        //                 </Block>
+                        
+        //                 <Block row space="around">
+                            
+        //                     <Block center middle>
+        //                         <Switch value={isLightOn}  onValueChange={ (value) => LightChangeHandler(value) }></Switch>
+        //                     </Block>
+                        
+        //                     <Block center middle>
+        //                         <Switch value={isBuzzerOn } onValueChange={ (value) => BuzzerChangeHandler(value) }></Switch>
+        //                     </Block>
+        //                 </Block>
+        //             </Block>
+                
+        //         </ScrollView>
+            
+        //     </Block>
+
+        // </View> */}
     );
 }
 
@@ -172,10 +252,16 @@ const styles = StyleSheet.create({
         marginBottom: -14 * 6,
       },
     button: {
-        width: 120,
-        height: 120,
-        borderRadius: 60,
+    backgroundColor: '#F4F5F7',
+    width: 131,
+    height: 131,
+    borderRadius: 131 / 2,
     }
+    // button: {
+    //     width: 120,
+    //     height: 120,
+    //     borderRadius: 60,
+    // }
 });
 
 export default Home;
