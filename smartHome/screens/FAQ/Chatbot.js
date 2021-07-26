@@ -20,7 +20,7 @@ export default class Chatbot extends Component {
     messages: [
       {
         _id: 1,
-        text: `Hi! I am the FAQ bot 🤖 .\n\nHow may I help you with today?`,
+        text: `Hi! I am the FAQ bot 🤖 .\n\nHow may I help you with today? Type Get Started!`,
         createdAt: new Date(),
         user: BOT_USER
       }
