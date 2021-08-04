@@ -72,7 +72,7 @@ function Login({navigation }) {
       .then(res => res.json())
       .then(res => {
         setIsLoading(false);
-        signIn(userId, res.sceneList);
+        signIn(userId, res.sceneList,userName);
       })
       .catch(function (error) {
         console.error('Error:', error);

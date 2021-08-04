@@ -43,7 +43,7 @@ function DynamicSceneList({ navigation, route }) {
     
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-AIO-Key': 'Input AIO here!!!',
+                            'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
                         }
                     })
     
@@ -61,16 +61,15 @@ function DynamicSceneList({ navigation, route }) {
                         }
                         
                 else {
-    
                     fetch("https://io.adafruit.com/api/v2/CSE_BBC/feeds/bk-iot-speaker/data", {
           
                         method: "POST",
                     
-                        body: JSON.stringify({ value: '{\"id\":\"1\",\"name\":\"LED\",\"data\":\"' + action.value + '\",\"unit\":\"\"}' }),
+                        body: JSON.stringify({ value: '{\"id\":\"2\",\"name\":\"SPEAKER\",\"data\":\"' + action.command + '\",\"unit\":\"\"}' }),
     
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-AIO-Key': 'Input AIO here!!!',
+                            'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
                         }
                     })
     
@@ -98,7 +97,9 @@ function DynamicSceneList({ navigation, route }) {
     }
 
     React.useEffect(() => {
+        const abortCont = new AbortController();
         fetch('http://127.0.0.1:3000/api/scene/' + userToken, {
+            signal: abortCont.signal,
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -107,10 +108,16 @@ function DynamicSceneList({ navigation, route }) {
           .then(res => {
             setSceneList(res.sceneList);
           })
-          .catch(function (error) {
-            console.error('Error:', error);
+            .catch(function (error) {
+                if (error.name === 'Abbort error') {
+                    console.log('Aborted');
+                }
+                else {
+                    setIsLoading(false);
+                }
           })
         setIsLoading(false);
+        return () => abortCont.abort();
     })
 
     return (

@@ -15,35 +15,85 @@ function SceneList({ navigation, route }) {
     const sceneList = route.params.sceneList;
 
     const runSceneHandler = (sceneId) => {
-        // Fetch Action List
+        const runSceneHandler = (sceneId) => {
+            // Fetch action List
+            fetch('http://127.0.0.1:3000/api/action/' + sceneId, {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+              }).then(res => res.json())
+                .then(res => {
+                res["actionList"].forEach(function (action) {
+                    if (action.device === "LED") {
+                        let value = 0
+                        if (action.command === "RED") {
+                            value = 1;
+                        }
+                        else {
+                            value = 2;
+                        }
+                        fetch("https://io.adafruit.com/api/v2/CSE_BBC/feeds/bk-iot-led/data", {
+              
+                            method: "POST",
+                        
+                            body: JSON.stringify({ value: '{\"id\":\"1\",\"name\":\"LED\",\"data\":\"' + value + '\",\"unit\":\"\"}' }),
         
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
+                            }
+                        })
         
-        // for each perform action
-
-
-        console.log(sceneId);
-        fetch("https://io.adafruit.com/api/v2/KaNology/feeds/bbc-led/data", {
-      
-            method: "POST",
+                            .then(response => response.json())
+                    
+                            .then(
         
-            body: JSON.stringify({ value: '{\"id\":\"1\",\"name\":\"LED\",\"data\":\"' + on +'\",\"unit\":\"\"}' }),
-
-            headers: {
-                'Content-Type': 'application/json',
-                'X-AIO-Key': 'Input AIO here!!!',
-            }
-        })
-
-            .then(response => response.json())
-    
-            .then(() => Alert.alert(
-                'Notification',
-                'Your LED has been turned ' + onStr,
-            ))
+                                console.log("Run LED successfully")
         
-            .catch((error) => {
-                console.error(error);
-            })
+                            )
+                        
+                            .catch((error) => {
+                                console.error(error);
+                            })
+                            }
+                            
+                    else {
+        
+                        fetch("https://io.adafruit.com/api/v2/CSE_BBC/feeds/bk-iot-speaker/data", {
+              
+                            method: "POST",
+                        
+                            body: JSON.stringify({ value: '{\"id\":\"2\",\"name\":\"SPEAKER\",\"data\":\"' + action.value + '\",\"unit\":\"\"}' }),
+        
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
+                            }
+                        })
+        
+                            .then(response => response.json())
+                    
+                            .then(
+        
+                                console.log("Run Buzzer successfully")
+        
+                            )
+                        
+                            .catch((error) => {
+                                console.error(error);
+                            })
+                        
+                    }
+                        });
+              })
+              .catch(function (error) {
+                console.error('Error:', error);
+              })
+                .finally(function () {
+                    Alert.alert("Success","Running scene successfully");
+                })
+        }
     }
 
     return (

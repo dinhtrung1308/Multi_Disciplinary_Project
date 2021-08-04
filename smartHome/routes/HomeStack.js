@@ -52,7 +52,7 @@ const TabScreen = ({ props }) => {
       <homeDrawerStack.Screen
         name="Home"
         component={Home}
-        initialParams={{ params: props }}
+        initialParams={{ userName: props.userName }}
         options={{
           drawerIcon: ({ focused, color, size }) => (
             <Icon name='home' style={{ fontSize: size, color: 'gold' }} />

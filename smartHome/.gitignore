@@ -60,3 +60,4 @@ buck-out/
 
 # API KEYS
 .env
+/screens/FAQ/env.js

@@ -16,10 +16,10 @@ function AddScene({ route, navigation }) {
         <SafeAreaView style={{ flex: 1}}>
             <Header style={ {backgroundColor:COLORS.black} }>
                 <Left style={ {flex:1} }>
-                    <Icon name="menu" style={{color: '#b06f13', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
+                    <Icon name="menu" style={{color: 'white', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
                 </Left>
                 <Body style={ {flex:1} } >
-                    <Text style={ {color:'#b06f13', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }>Scenes</Text>
+                    <Text style={ {color:'white', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }>Scenes</Text>
                 </Body>
                 <Right style={ {flex:1} } />
             </Header>

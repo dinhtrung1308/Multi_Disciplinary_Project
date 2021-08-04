@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Form, Item, Input, Body, Text, CheckBox, Button,Alert} from 'native-base';
+import {View, StyleSheet, Alert} from 'react-native';
+import {Form, Item, Input, Body, Text, CheckBox, Button} from 'native-base';
 
 /**
  * Profile screen
@@ -84,6 +84,7 @@ function FeedForm({ navigation }) {
             }).catch(err => {
                 console.log("error", err)
             })
+    Alert.alert("Success", "your feedback has been sent !")
 
         setName('')
         setEmail('')

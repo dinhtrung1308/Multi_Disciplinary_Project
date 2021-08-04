@@ -20,7 +20,7 @@ const FaqStack = createStackNavigator();
 
 const FaqTabStack = ({ navigation }) => {
     return (
-        <FaqStack.Navigator initialRouteName="Faq">
+        <FaqStack.Navigator initialRouteName="Chatbot">
             <FaqStack.Screen
                 name="Faq"
                 component={FAQs}
@@ -31,15 +31,10 @@ const FaqTabStack = ({ navigation }) => {
 
             <FaqStack.Screen
                 name="Chatbot"
-                component={Chatbot}
                 options={{
-                    headerTitle: 'Chat',
-                    headerTitleAlign: 'center',
-                    headerTintColor: 'white',
-                    headerStyle: {
-                    backgroundColor: COLORS.black,
-                    },
+                    headerShown: false,
                 }}
+                component={Chatbot}
             />
 
         </FaqStack.Navigator>

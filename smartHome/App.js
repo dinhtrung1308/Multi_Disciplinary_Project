@@ -20,10 +20,12 @@ const App = () => {
 
   const [userToken, setUserToken] = React.useState(null);
   const [sceneList, setSceneList] = React.useState([]);
+  const [userName, setUserName] = React.useState('');
 
    const authContext = React.useMemo(() => {
      return {
-       signIn: (_userToken, _sceneList) => {
+       signIn: (_userToken, _sceneList, _userName) => {
+         setUserName(_userName);
          setSceneList(_sceneList);
          setUserToken(_userToken);
        },
@@ -40,7 +42,7 @@ const App = () => {
    return (
    <AuthContext.Provider value={authContext}>
          <NavigationContainer>
-           {userToken ? (<TabScreen props={{userToken: userToken, sceneList: sceneList}} />) : (<AuthStackTab />)}
+           {userToken ? (<TabScreen props={{userToken: userToken, sceneList: sceneList, userName: userName}} />) : (<AuthStackTab />)}
          </NavigationContainer>
      </AuthContext.Provider>
     
