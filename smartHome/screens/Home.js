@@ -34,7 +34,6 @@ function Home({ route, navigation }) {
             return fetch("https://io.adafruit.com/api/v2/CSE_BBC/feeds/bk-iot-temp-humid/data?limit=1", {
             method: 'GET',
             headers: {
-                'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
             }
         })
             .then((response) => response.json())
@@ -69,7 +68,6 @@ function Home({ route, navigation }) {
 
             headers: {
                 'Content-Type': 'application/json',
-                'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
             }
         })
 
@@ -101,7 +99,6 @@ function Home({ route, navigation }) {
 
             headers: {
                 'Content-Type': 'application/json',
-                'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
             }
         })
 

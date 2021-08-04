@@ -41,7 +41,6 @@ function SceneList({ navigation, route }) {
         
                             headers: {
                                 'Content-Type': 'application/json',
-                                'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
                             }
                         })
         
@@ -68,7 +67,6 @@ function SceneList({ navigation, route }) {
         
                             headers: {
                                 'Content-Type': 'application/json',
-                                'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
                             }
                         })
         

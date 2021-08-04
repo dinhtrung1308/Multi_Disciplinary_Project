@@ -42,8 +42,7 @@ function DynamicSceneList({ navigation, route }) {
                         body: JSON.stringify({ value: '{\"id\":\"1\",\"name\":\"LED\",\"data\":\"' + value + '\",\"unit\":\"\"}' }),
     
                         headers: {
-                            'Content-Type': 'application/json',
-                            'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
+                            'Content-Type': 'application/json', 
                         }
                     })
     
@@ -69,7 +68,6 @@ function DynamicSceneList({ navigation, route }) {
     
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-AIO-Key': 'aio_xfrn03lbvcuWzB3QUlWMPb6jelZR',
                         }
                     })
     

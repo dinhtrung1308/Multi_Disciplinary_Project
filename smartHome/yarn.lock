@@ -3360,7 +3360,7 @@
   "resolved" "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.1.tgz"
   "version" "1.1.1"
 
-"buffer@^5.2.0":
+"buffer@^5.2.0", "buffer@^5.4.0":
   "integrity" "sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ=="
   "resolved" "https://registry.npmjs.org/buffer/-/buffer-5.7.1.tgz"
   "version" "5.7.1"
@@ -8396,6 +8396,11 @@
   dependencies:
     "performance-now" "^2.1.0"
 
+"random-id@^1.0.3":
+  "integrity" "sha512-78QU7sgk2uUsXDu5B/CV8R2ee6yAWDhJxvYPCLNXDD2EIdjb7vOLNXEm4S6//s++u4hAkH7umdq+usngpcTSeA=="
+  "resolved" "https://registry.npmjs.org/random-id/-/random-id-1.0.4.tgz"
+  "version" "1.0.4"
+
 "range-parser@~1.2.1":
   "integrity" "sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg=="
   "resolved" "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz"
@@ -8586,6 +8591,15 @@
   "integrity" "sha1-nut/kp4nfCiuvz0/S2zQWvzQHRo="
   "resolved" "https://registry.npmjs.org/react-native-list-view-select/-/react-native-list-view-select-1.0.4.tgz"
   "version" "1.0.4"
+
+"react-native-native-mqtt@^0.1.8":
+  "integrity" "sha512-Bjxq5XPL2WeuoSCglL+PMHejNN6Cu4+9tVUN7W7TY7hUPAyHkUofw2yOnvW8LfYuzVI3HWI0fo/r/84Ql37T3A=="
+  "resolved" "https://registry.npmjs.org/react-native-native-mqtt/-/react-native-native-mqtt-0.1.8.tgz"
+  "version" "0.1.8"
+  dependencies:
+    "buffer" "^5.4.0"
+    "random-id" "^1.0.3"
+    "tiny-emitter" "^2.1.0"
 
 "react-native-paper@^4.8.1":
   "integrity" "sha512-WgmqrDdcrr0ZbuiLCwMpmOMhl1n8uIvNulxsl2oCGtD8oeMkPJKHf4G/ONR+iNrSXcFbJek+uDRSmcGA5kDfUA=="
@@ -10011,6 +10025,11 @@
   "integrity" "sha512-IjZc9KIotudix8bMaBW6QvMuq64BrJWFs1+4V0lXwWGQZwH+LnX87doAYhem4caOEusRP9/g6jVDQmZ8XOk1nw=="
   "resolved" "https://registry.npmjs.org/timm/-/timm-1.7.1.tgz"
   "version" "1.7.1"
+
+"tiny-emitter@^2.1.0":
+  "integrity" "sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q=="
+  "resolved" "https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz"
+  "version" "2.1.0"
 
 "tinycolor2@^1.4.1":
   "integrity" "sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA=="
