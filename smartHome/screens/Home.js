@@ -5,7 +5,8 @@ import {
     StyleSheet,
     ScrollView,
     TouchableOpacity,
-    Alert
+    Alert,
+    Image
 } from "react-native";
 // https://reactnavigation.org/docs/getting-started
 // npm install native-base --save
@@ -26,7 +27,7 @@ function Home({ navigation }) {
     const [isLightOn, setLightSwitch] = React.useState(false);
     const [isBuzzerOn, setBuzzerSwitch] = React.useState(false);
     
-    const userName = route.params["params"]["userToken"];
+    const userName = "Bill";
     
     useEffect (() => {
         return fetch("https://io.adafruit.com/api/v2/KaNology/feeds/bbc-temperature/data?limit=1", {
@@ -89,10 +90,10 @@ function Home({ navigation }) {
         <View style={ {flex: 1} }>
             <Header style={ {backgroundColor:COLORS.black} }>
                 <Left style={ {flex:1} }>
-                    <Icon name="menu" style={{color: '#b06f13', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
+                    <Icon name="menu" style={{color: 'white', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
                 </Left>
                 <Body style={ {flex:1} } >
-                    <Text style={ {color:'#b06f13', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }> Home </Text>
+                    <Text style={ {color:'white', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }> Home </Text>
                 </Body>
                 <Right style={ {flex:1} } />
             </Header>
@@ -107,7 +108,7 @@ function Home({ navigation }) {
                 <Block row style={{ paddingVertical: 30 }}>
                     <Block flex={1.5} row style={{}}>
                         {isGettingTemp ? <ActivityIndicator size="large" color="#b06f13"/> :
-                            <Text style={{ ...FONTS.h1 }}>{temperature}</Text>
+                            <Text style={{ ...FONTS.h1 }}>34</Text>
                         }
                         <Text h1 size={44} height={80} weight='600' spacing={0.1}>°C</Text>
                     </Block>
@@ -163,81 +164,6 @@ function Home({ navigation }) {
          </LinearGradient>
 
         </View>
-
-        {/*  <View style={ {flex: 1} }>
-            <Header style={ {backgroundColor:COLORS.black} }>
-                 <Left style={ {flex:1} }>
-        //             <Icon name="menu" style={{color: '#b06f13', fontSize:FONTS.h3.fontSize}} onPress={ () => navigation.openDrawer() } />
-        //         </Left>
-        //         <Body style={ {flex:1} } >
-        //             <Text style={ {color:'#b06f13', fontFamily : FONTS.h3.fontFamily, fontSize:FONTS.h3.fontSize} }> Home </Text>
-        //         </Body>
-        //         <Right style={ {flex:1} } />
-        //     </Header>
-            
-        //     <Block style={styles.dashboard}>
-        //         <Block column style={{ marginVertical: 14 * 2, }}>
-        //             <Text style={ {...FONTS.welcome} }>Welcome!</Text>
-        //             <Text style={ {...FONTS.name} }>{userName}</Text>
-        //         </Block>
-
-        //         <Block row style={{ paddingVertical: 10 }}>
-        //             <Block flex={1.5} row style={{}}>
-        //                 {isGettingTemp ? <ActivityIndicator size="large" color="#b06f13"/> :
-        //                     <Text style={{ ...FONTS.h1 }}>{temperature}</Text>
-        //                 }
-        //                 <Text h1 size={34} height={80} weight='600' spacing={0.1}>°C</Text>
-        //             </Block>
-        //             <Block flex={1} column>
-        //                 <Text caption>Temperature</Text>
-        //             </Block>
-        //         </Block>
-        //         <Block row>
-        //             <TouchableOpacity style={ {marginLeft:30} } activeOpacity={0.5} onPress={ () => setGettingTemp(true) }>
-        //                 <Icon name='refresh' style={{ fontSize: 30, color: '#b06f13'}} />
-        //             </TouchableOpacity>
-        //         </Block>
-        //         <ScrollView contentContainerStyle={styles.buttons} showsVerticalScrollIndicator={false}>
-        //             <Block column space="between">
-        //                 <Block row space="around" style={{ marginVertical: 14 }}>
-                            
-        //                     <Block center middle style={styles.button}>
-        //                         <Icon name='bulb' style={{ fontSize: 38, color: '#b06f13'}} />
-        //                         <Text
-        //                             style={{ marginTop: 24 * 0.5, color: '#b06f13' }}
-        //                         >
-        //                             LED
-        //                         </Text>
-        //                     </Block>
-                    
-        //                     <Block center middle style={styles.button}>
-        //                         <Icon name='notifications' style={{ fontSize: 38, color: '#b06f13'}} />
-        //                         <Text
-        //                             style={{ marginTop: 24 * 0.5, color: '#b06f13' }}
-        //                         >
-        //                             Buzzer
-        //                         </Text>
-        //                     </Block>
-
-        //                 </Block>
-                        
-        //                 <Block row space="around">
-                            
-        //                     <Block center middle>
-        //                         <Switch value={isLightOn}  onValueChange={ (value) => LightChangeHandler(value) }></Switch>
-        //                     </Block>
-                        
-        //                     <Block center middle>
-        //                         <Switch value={isBuzzerOn } onValueChange={ (value) => BuzzerChangeHandler(value) }></Switch>
-        //                     </Block>
-        //                 </Block>
-        //             </Block>
-                
-        //         </ScrollView>
-            
-        //     </Block>
-
-        // </View> */}
     );
 }
 
@@ -256,12 +182,10 @@ const styles = StyleSheet.create({
     width: 131,
     height: 131,
     borderRadius: 131 / 2,
+    },
+    body: {
+        flex: 1,
     }
-    // button: {
-    //     width: 120,
-    //     height: 120,
-    //     borderRadius: 60,
-    // }
 });
 
 export default Home;

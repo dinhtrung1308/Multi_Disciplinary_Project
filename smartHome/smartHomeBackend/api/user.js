@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/user.model");
 
 // Create a new user POST /api/user/signup
-router.post('/user/signup', (req, res) => {
+router.post('/signup', (req, res) => {
     const user = new User({
         fullName: req.body.fullName,
         username: req.body.username,
@@ -18,28 +18,51 @@ router.post('/user/signup', (req, res) => {
 });
 
 // Verify the user when login POST /api/user/login
-router.post('/user/login', async (req, res) => {
+router.post('/login', async (req, res) => {
     var username = req.body.username
     var password = req.body.password
 
-    User.findOne({ username: username })
-        .then(user => {
-            if(!user){
-                res.json({ status: 'wrong' })
-            }
-            if (user.password === password) {
-                res.send(user)
-            }
-            else{
-                res.json({ status: 'wrong' })
-            }
-        }).catch(err => {
-            console.log(err)
-        })
+    // User.findOne({ username: username })
+    //     .then(user => {
+    //         if(!user){
+    //             res.status(500).send({ message: err });
+    //             return;
+    //         }
+    //         if (user.password === password) {
+    //             res.send(user)
+    //         }
+    //         else{
+    //             res.json({ status: 'wrong' })
+    //         }
+    //     }).catch(err => {
+    //         console.log(err)
+    //     })
+    
+        User.findOne({
+            username: req.body.username
+          })
+            .exec((err, user) => {
+                if (err) {
+                    res.status(500).send({ message: err });
+                    return;
+                }
+        
+                if (!user) {
+                    return res.status(404).send({ message: "User Not found." });
+                }
+              
+                if (user.password !== req.body.password) {
+                    return res.status(404).send({ message: "Password does not match" });
+                }
+                
+                res.status(200).send({
+                    _id: user._id
+                });
+            });
 })
 
 // Find a user GET /api/user/:id
-router.get('/user/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const id = req.params.id;
     User.findById(id)
         .exec()
@@ -54,7 +77,7 @@ router.get('/user/:id', (req, res) => {
 });
 
 // Update a user's password PUT /api/user/:id 
-router.put('/user/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     const id = req.params.id;
     User.findByIdAndUpdate(id, req.body, {useFindAndModify:false})
         .then(doc => {
@@ -68,7 +91,7 @@ router.put('/user/:id', (req, res) => {
 });
 
 // Delete a user DELETE /api/user/:id
-router.delete('/user/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     const id = req.params.id;
     User.then(data => {
         if (!data) {

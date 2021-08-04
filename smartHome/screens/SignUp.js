@@ -45,7 +45,7 @@ function SignUp({ navigation }) {
             .then(data => {
                 console.log(data)
                 Alert.alert('Register Successful.')
-                navigation.navigate('Login')
+                navigation.pop();
             }).catch(err => {
                 console.log("error", err)
             })
@@ -54,7 +54,6 @@ function SignUp({ navigation }) {
         setEmail('')
         setUsername('')
         setPassword('')
-        signUp()
     };
 
     return (

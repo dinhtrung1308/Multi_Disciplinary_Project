@@ -15,13 +15,13 @@ router.post('/:id', (req, res) => {
             if (!user) res.status(404).send({ message: "Not found User with id" });
             else {
                 const scene = new Scene({
-                    name: req.body.scene.name,
+                    name: req.body.name,
                     user: uid
                 });
-                user.sceneList.push(scene.id);
+                user.sceneList.push(scene._id);
                 user.save().then(result1 => {
                     scene.save().then(result2 => {
-                        res.send({message: "Scene has been successfully created for user"});
+                        res.send({message: "Scene has been successfully created for user", sceneId: scene._id});
                     }).catch(err => console.log(err));
                 }).catch(err => console.log(err));
             }

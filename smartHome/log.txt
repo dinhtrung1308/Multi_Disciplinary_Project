@@ -1,0 +1,275 @@
+commit 2aa14293e5a6acd562c69d11c2155342f0934189
+Author: dinhtrung1308 <66743192+dinhtrung1308@users.noreply.github.com>
+Date:   Mon Jul 26 11:47:50 2021 +0700
+
+    Update chatbot
+
+commit 7dea678f3f72a5d9a1c468639f416162a69d2eab
+Author: trung1308 <trung13082000@gmail.com>
+Date:   Thu Jul 22 22:41:42 2021 +0700
+
+    Update UI home
+
+commit e6a5ae37229233f06b51c900053d84f00411b852
+Author: Le Thien An <61189836+KaNology@users.noreply.github.com>
+Date:   Fri Jun 25 19:52:12 2021 +0700
+
+    Update README.md
+
+commit 412ae7704411af2895164f48eddf125237ba52d1
+Author: KaNology <an.le091000@gmail.com>
+Date:   Fri Jun 25 13:10:05 2021 +0700
+
+    Rearrange Project
+
+commit 77aacb440c1fa338839d51a44482a10b42aed0d2
+Author: billdao <bao.dao811@hcmut.edu.vn>
+Date:   Thu Jun 24 15:36:21 2021 +0700
+
+    Update model schema and route handler for feedback
+
+commit de9e940585ad78fdd6163fdc43c76262ad22da9d
+Author: billdao <bao.dao811@hcmut.edu.vn>
+Date:   Wed Jun 23 23:50:05 2021 +0700
+
+    Adding Splash Screen of the client application
+
+commit 1b71eb3a4db3c1d3c0f4ea7cf3c5124eb919b778
+Author: billdao <bao.dao811@hcmut.edu.vn>
+Date:   Wed Jun 23 23:46:09 2021 +0700
+
+    Add and Modify schema for user's data server
+
+commit dbb7cf7eb530a7cee6e8fca80ae576772b547685
+Author: billdao <bao.dao811@hcmut.edu.vn>
+Date:   Wed Jun 23 23:44:45 2021 +0700
+
+    define route for API services
+
+commit 1c2d8871dff72a96e071f46084d6a7dfa7e6ab1d
+Author: Trung <trungduong13082000@gmail.com>
+Date:   Sun Jun 20 01:11:46 2021 +0700
+
+    Update Submit Form function and fetch API
+
+commit 48039b99f0fda744922a58fd66a9f737a3dac71f
+Author: Le Thien An <61189836+KaNology@users.noreply.github.com>
+Date:   Sat Jun 19 16:15:43 2021 +0700
+
+    Update HomeStack.js
+
+commit f81f9f5315a322a4c32f6c723eb28435a5d7033f
+Author: Le Thien An <61189836+KaNology@users.noreply.github.com>
+Date:   Fri Jun 18 16:58:42 2021 +0700
+
+    Update Home.js
+
+commit b0832e27437c312dc84b52193f1604693f81e140
+Author: Le Thien An <61189836+KaNology@users.noreply.github.com>
+Date:   Fri Jun 18 16:56:58 2021 +0700
+
+    Update HomeStack.js
+
+commit 9ccbd1ee08a262d421fad705e430c5230bbf5ecc
+Author: Le Thien An <61189836+KaNology@users.noreply.github.com>
+Date:   Fri Jun 18 16:56:03 2021 +0700
+
+    Passing Data
+
+commit 2ab57fb4f0bad2731f92ea6ebe01519a14c67c02
+Author: billdao <bao.dao811@hcmut.edu.vn>
+Date:   Wed Jun 16 15:08:50 2021 +0700
+
+    Modify color of UI and fix navigation bugs
+
+commit 249579a77b961cd84fd00a6bd4823c603184320e
+Author: billdao <bao.dao811@hcmut.edu.vn>
+Date:   Tue Jun 8 00:12:27 2021 +0700
+
+    Completing basic UI for Scene function
+    
+    Merging two stack navigation of FAQs, Feedback and Warning into the whole AppStack
+
+commit 7b77fe0bf6678a981cfade850f180c32fec40514
+Author: Trung <trungduong13082000@gmail.com>
+Date:   Wed Jun 2 18:23:52 2021 +0700
+
+    Update Feedback and add form
+
+commit 22bdf403aec4451f172e98fa195c3dd2f8c06469
+Author: Trung <trungduong13082000@gmail.com>
+Date:   Wed Jun 2 18:16:16 2021 +0700
+
+    Update FAQ screens and Add Chat bot
+
+commit f23d36091cf8a0a81df0dc2b084d1eb031687b23
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Tue Jun 1 23:50:06 2021 +0700
+
+    Initilizing UI for Scene functions
+
+commit 2bf8ad5f31d6a729fa484ed7e2f3866d94297fbf
+Author: KaNology <61189836+KaNology@users.noreply.github.com>
+Date:   Mon May 31 12:48:00 2021 +0700
+
+    Update Login.js
+
+commit 085d861f8af92f4c739aa3d196d9608eabd7d8a3
+Author: KaNology <61189836+KaNology@users.noreply.github.com>
+Date:   Mon May 31 12:45:48 2021 +0700
+
+    Update server.js
+
+commit aeff11fc60d5149e57e1d81fab05051882cf1bbd
+Author: KaNology <61189836+KaNology@users.noreply.github.com>
+Date:   Sun May 30 11:07:03 2021 +0700
+
+    Update README.md
+
+commit a385dba0c8335cca6a458d36d3cb643eaa09b6e8
+Author: KaNology <61189836+KaNology@users.noreply.github.com>
+Date:   Sun May 30 10:59:35 2021 +0700
+
+    Create SignUpModels.js
+
+commit 123b78b7774c2a5f29af75b8ddd92a0d2e300b25
+Author: KaNology <61189836+KaNology@users.noreply.github.com>
+Date:   Sun May 30 10:58:53 2021 +0700
+
+    Create package.json
+
+commit b1fdc058ced3b6e7fd70794fd4b94fdd4ef91e3c
+Author: KaNology <61189836+KaNology@users.noreply.github.com>
+Date:   Sun May 30 10:58:25 2021 +0700
+
+    Create server.js
+
+commit fe66e32e19369f3668485d2287b6a3173b47f9c7
+Author: KaNology <61189836+KaNology@users.noreply.github.com>
+Date:   Sun May 30 10:54:47 2021 +0700
+
+    Sign Up implementation
+    
+    Upload User data to database
+
+commit 166061f603abf5002adf80f1b7d536d69e66b549
+Author: KaNology <61189836+KaNology@users.noreply.github.com>
+Date:   Sun May 23 21:36:31 2021 +0700
+
+    Update README
+
+commit 21116ac4a13e7fcadd8ecb47a76c40b27fbe1fc6
+Author: KaNology <61189836+KaNology@users.noreply.github.com>
+Date:   Sun May 23 21:00:54 2021 +0700
+
+    Update WarningHome
+
+commit 9f94b89a4d8edc18b5e1335b0dca3d6b6c34cb15
+Merge: a993f0b9 0df3703e
+Author: KaNology <an.le091000@gmail.com>
+Date:   Fri May 21 18:08:56 2021 +0700
+
+    Merge branch 'master' of https://github.com/ducbao811/Multi_Disciplinary_Project
+
+commit a993f0b9c9ee5d5eb3ce208c0a8d2a149298b740
+Author: KaNology <an.le091000@gmail.com>
+Date:   Fri May 21 18:08:39 2021 +0700
+
+    Warning Screen updates
+
+commit 0df3703e7b63bf95cccce0495f3968f62dedf3d6
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Fri May 21 15:43:18 2021 +0700
+
+    Change some style of text and Text inside tabs
+
+commit 52e030408e56924f33e4086f6f18ca682e3c37ed
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Fri May 21 03:39:02 2021 +0700
+
+    Adding functionality for hiding API Keys
+
+commit 56579eac2a968a155b85187a22c2633b709e0def
+Merge: 9ee43163 9349cb80
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Fri May 21 02:20:16 2021 +0700
+
+    .
+
+commit 9ee43163fa4e0924e16557004bcd064c4612bbf8
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Fri May 21 02:15:26 2021 +0700
+
+    Creating receiving and publishing data function
+
+commit f56d00d5ba630520ff8dfca57eec8b26d007db8a
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Fri May 21 02:01:16 2021 +0700
+
+    Adding function for receiving and publishing data to server
+
+commit 9349cb80f28f6cb8ccb0027a5e98222fd843fd3b
+Author: Trung <trungduong13082000@gmail.com>
+Date:   Fri May 21 00:10:16 2021 +0700
+
+    add FAQs and Feedback
+
+commit 238c2e0db7afae5eed0bf5ebaf7d4bd167f70757
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Thu May 20 19:20:16 2021 +0700
+
+    Design Basic UI for Homepage
+
+commit 03ee7583352049a53284d90fe7e5f248f3bb0dba
+Author: Trung <trungduong13082000@gmail.com>
+Date:   Thu May 20 18:29:05 2021 +0700
+
+    Add Feedback screen
+
+commit 35c1e029e6d5327482a5bca0f179c4857639cf5a
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Thu May 20 01:12:41 2021 +0700
+
+    Merging Warning Stack and Modifying sidebar for navigating in the app
+
+commit 9aaac663d3359e7b0cc12a5d1e0c6f9ba7ba2706
+Author: KaNology <an.le091000@gmail.com>
+Date:   Wed May 19 21:09:06 2021 +0700
+
+    Warning Screens and route
+    
+    Screens:
+    - WarningHome, WarningSelect, WarningSetup: UI for Warning
+    - Warning: Navigator for Warning screens
+    Routes:
+    warningStack: stack to navigate between Warning screens.
+
+commit c18d92ca866d2aa9a686df83abe28fc3490133e8
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Wed May 19 00:32:40 2021 +0700
+
+    Add Navigation routes
+
+commit 6abc8f64debb456f5e094a57c8f697e45e31339b
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Mon May 17 11:54:47 2021 +0700
+
+    Create Login Screen
+
+commit 7282e8bdd2b346f95fa61df1da209b46d7355d88
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Mon May 17 10:53:23 2021 +0700
+
+    Reset repository
+
+commit 987b35b95867dc11a2b706ad9517cf2dc2bfb11f
+Author: ducbao811 <47705177+ducbao811@users.noreply.github.com>
+Date:   Mon May 17 10:23:30 2021 +0700
+
+    Create README
+
+commit 3d18c9c9ff43c32a44bf8753f7b0149016d700f8
+Author: bill <bao.dao811@hcmut.edu.vn>
+Date:   Mon May 17 10:21:03 2021 +0700
+
+    First Commit: Create Login Screen

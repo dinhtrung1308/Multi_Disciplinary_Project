@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+
 const userSchema = mongoose.Schema({
-    userName: {
+    username: {
         type: String,
         required: true
     },
@@ -8,26 +9,21 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    firstName: {
+    fullName: {
         type: String,
-        required: false
-    },
-    lastName: {
-        type: String,
-        required: false
+        required: true
     },
     email: {
         type: String,
         required: true
     },
-    phoneNumber: {
-        type: String,
-        required: false
-    },
-    date:{
-        type:Date,
-        default:Date.now
-    }
+    sceneList: [{type: mongoose.Schema.Types.ObjectId,ref: 'Scene'}]
 })
+
+// userSchema.method("toJSON", function() {
+//     const { __v, _id, ...object } = this.toObject();
+//     object.id = _id;
+//     return object;
+//   });
 
 module.exports = mongoose.model('User', userSchema);

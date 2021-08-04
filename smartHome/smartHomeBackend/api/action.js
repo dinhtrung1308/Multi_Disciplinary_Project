@@ -5,7 +5,7 @@ const Scene = require("../models/scene.model");
 const Action = require("../models/action.model");
 // All the handlers for the path api/action
 
-// Add action to a scene POST /api/action/:sceneId
+// Add actionList to a scene POST /api/action/:sceneId
 router.post('/:sceneId', (req, res) => {
     const sceneId = req.params.sceneId;
     Scene.findById(sceneId)
@@ -13,17 +13,20 @@ router.post('/:sceneId', (req, res) => {
         .then(scene => {
             if (!scene) res.status(404).send({ message: "Not found Scene with id" });
             else {
-                const action = new Action({
-                    command: req.body.action.command,
-                    device: req.body.action.device,
-                    scene: sceneId,
-                });
-                scene.actionList.push(action.id);
-                scene.save().then(result1 => {
-                    action.save().then(result2 => {
-                        res.send({message: "Action has been successfully added"});
+                req.body.actionList.forEach(function (_action) {
+                    const action = new Action({
+                        command: _action.action_value,
+                        device: _action.actionName,
+                        scene: sceneId,
+                    });
+                    scene.actionList.push(action.id);
+                    scene.save().then(result1 => {
+                        action.save().then(result2 => {
+                            res.send({message: "Actions have been successfully added"});
+                        }).catch(err => console.log(err));
                     }).catch(err => console.log(err));
-                }).catch(err => console.log(err));
+                });
+                
             }
         })
         .catch(err => {

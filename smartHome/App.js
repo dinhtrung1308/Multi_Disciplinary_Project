@@ -6,27 +6,33 @@
  * @flow strict-local
  */
 
- import React from 'react';
- import { NavigationContainer } from '@react-navigation/native';
- import { createStackNavigator } from '@react-navigation/stack';
- import TabScreen from './routes/HomeStack';
- import AuthStackTab from './routes/AuthStack';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import TabScreen from './routes/HomeStack';
+import AuthStackTab from './routes/AuthStack';
 import { AuthContext } from './components/Context';
-  
+import RNBootSplash from 'react-native-bootsplash';
 const App = () => {
  
-   const [userToken, setUserToken] = React.useState(null);
- 
+  React.useEffect(() => {
+    RNBootSplash.hide({duration:2000})
+  },[userToken])
+
+  const [userToken, setUserToken] = React.useState(null);
+  const [sceneList, setSceneList] = React.useState([]);
+
    const authContext = React.useMemo(() => {
      return {
-       signIn: (userToken) => {
-         setUserToken(userToken)
+       signIn: (_userToken, _sceneList) => {
+         setSceneList(_sceneList);
+         setUserToken(_userToken);
        },
        signUp: () => {
          setUserToken("some value")
         },
        signOut: () => {
          setUserToken(null)
+         setSceneList([])
         },
      }   
     })
@@ -34,10 +40,10 @@ const App = () => {
    return (
    <AuthContext.Provider value={authContext}>
          <NavigationContainer>
-           {userToken ? (<TabScreen props={{userToken: userToken}} />) : (<AuthStackTab />)}
+           {userToken ? (<TabScreen props={{userToken: userToken, sceneList: sceneList}} />) : (<AuthStackTab />)}
          </NavigationContainer>
      </AuthContext.Provider>
-     
+    
    );
  }
  

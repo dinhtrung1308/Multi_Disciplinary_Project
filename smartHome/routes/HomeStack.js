@@ -16,6 +16,7 @@ import FeedbackTabStack from './feedbackStack'
 import FaqTabStack from './FAQstack';
 import { AuthContext } from "../components/Context"
 
+
 function DrawerContent({ ...props }) {
 
   const { signOut } = React.useContext(AuthContext);
@@ -28,7 +29,9 @@ function DrawerContent({ ...props }) {
       <Content>
         <DrawerItemList {...props} />
         <DrawerItem
-          onPress={() => signOut()}
+          onPress={() => {
+            signOut();
+          }}
           label="Sign Out"
           icon={({ focused, color, size }) => <Icon name='md-exit' style={{ fontSize: size, color: 'gold' }} />}
         />
@@ -59,18 +62,10 @@ const TabScreen = ({ props }) => {
       <homeDrawerStack.Screen
         name="Scene"
         component={SceneTabStack}
+        initialParams={{ userToken: props.userToken, sceneList: props.sceneList}}
         options={{
           drawerIcon: ({ focused, color, size }) => (
             <Icon name='bulb' style={{ fontSize: size, color: 'gold' }} />
-          ),
-        }}
-      />
-      <homeDrawerStack.Screen
-        name="Automatics"
-        component={Automatics}
-        options={{
-          drawerIcon: ({ focused, color, size }) => (
-            <Icon name='md-play-forward' style={{ fontSize: size, color: 'gold' }} />
           ),
         }}
       />

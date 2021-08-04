@@ -11,12 +11,12 @@ function AddAction({navigation}){
     return (
         <View style={styles.container}>
             
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("EditLight")}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.push("EditLight")}>
                 <Icon name="md-bulb" style={{ flex: 0.2, fontSize: 35, color: '#307AFF'}}/>
                 <Text style={{ flex:0.8, fontSize: 20, fontWeight:'600' }}>Light</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("EditBuzzer")}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.push("EditBuzzer")}>
                 <Icon name="md-notifications" style={{ flex: 0.2, fontSize: 35, color: '#307AFF'}}/>
                 <Text style={{ flex:0.8, fontSize: 20, fontWeight:'600' }}>Buzzer</Text>
             </TouchableOpacity>

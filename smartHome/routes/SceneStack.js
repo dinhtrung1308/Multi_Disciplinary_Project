@@ -1,21 +1,46 @@
 import React from "react"
 import { createStackNavigator } from '@react-navigation/stack';
-import { AddAction, AddScene, EditBuzzer, EditLight, AddSceneDetail } from '../screens/Scenes';
+import { AddAction, AddScene, EditBuzzer, EditLight, AddSceneDetail, SceneList, DynamicSceneList } from '../screens/Scenes';
 import { COLORS, FONTS } from "../constants";
 import { TouchableOpacity, Text } from "react-native";
 
 const SceneStack = createStackNavigator();
 
-const SceneTabStack = ({ navigation }) => {
+const SceneTabStack = ({ navigation, route }) => {
     return (
-        <SceneStack.Navigator initialRouteName="AddScene">
-            <SceneStack.Screen
+        <SceneStack.Navigator>
+            {route.params.sceneList.length === 0 ? (
+                <SceneStack.Screen
                 name="AddScene"
                 component={AddScene}
+                initialParams={ {userToken : route.params.userToken} }
                 options={{
                     headerShown: false,
                 }}
             />
+            ): (
+                <SceneStack.Screen
+                name="SceneList"
+                component={SceneList}
+                        initialParams={{
+                            userToken: route.params.userToken,
+                            sceneList: route.params.sceneList
+                        }}
+                options={{
+                    headerShown: false,
+                }}
+            />        
+            )}
+            <SceneStack.Screen
+                name="DynamicSceneList"
+                component={DynamicSceneList}
+                        initialParams={{
+                            userToken: route.params.userToken,
+                        }}
+                options={{
+                    headerShown: false,
+                }}
+            />  
             <SceneStack.Screen
                 name="AddSceneDetail"
                 component={AddSceneDetail}
@@ -26,15 +51,8 @@ const SceneTabStack = ({ navigation }) => {
                     headerStyle: {
                     backgroundColor: COLORS.black,
                     },
-                    headerRight: (props) => (
-                        <TouchableOpacity style={{opacity:1}} onPress={() => {}}>
-                            <Text style={{ fontSize: 16, fontWeight:'bold', color:'white'}}>SAVE</Text>
-                        </TouchableOpacity>
-                    ),
-                    headerRightContainerStyle: {
-                        paddingRight: 15
-                    }
                 }}
+                initialParams={ {userToken : route.params.userToken} }
             />
             <SceneStack.Screen
                 name="AddAction"
@@ -58,14 +76,6 @@ const SceneTabStack = ({ navigation }) => {
                     headerStyle: {
                         backgroundColor: COLORS.black,
                     },
-                    headerRight: (props) => (
-                        <TouchableOpacity style={{ opacity: 1 }} onPress={() => { }}>
-                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>SAVE</Text>
-                        </TouchableOpacity>
-                    ),
-                    headerRightContainerStyle: {
-                        paddingRight: 15
-                    }
                 }}
             />
             <SceneStack.Screen
@@ -78,14 +88,6 @@ const SceneTabStack = ({ navigation }) => {
                     headerStyle: {
                         backgroundColor: COLORS.black,
                     },
-                    headerRight: (props) => (
-                        <TouchableOpacity style={{ opacity: 1 }} onPress={() => { }}>
-                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>SAVE</Text>
-                        </TouchableOpacity>
-                    ),
-                    headerRightContainerStyle: {
-                        paddingRight: 15
-                    }
                 }}
             />
         </SceneStack.Navigator>

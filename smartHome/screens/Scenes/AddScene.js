@@ -9,7 +9,9 @@ import {
 import { Header, Left, Right, Icon, Body } from 'native-base';
 import { COLORS, FONTS, images } from '../../constants';
 import { StyleSheet } from 'react-native';
-function AddScene({navigation}){
+
+function AddScene({ route, navigation }) {
+
     return (
         <SafeAreaView style={{ flex: 1}}>
             <Header style={ {backgroundColor:COLORS.black} }>
@@ -21,35 +23,34 @@ function AddScene({navigation}){
                 </Body>
                 <Right style={ {flex:1} } />
             </Header>
-            
-            <View style={styles.container}>
-                <Image source={images.scene} style={styles.image} />
+                <View style={styles.container}>
+                    <Image source={images.scene} style={styles.image} />
 
-                <View style={ {padding:10} }>
-                    <Text style={FONTS.h2}>Scenes</Text>
-                </View>
+                    <View style={ {padding:10} }>
+                        <Text style={FONTS.h2}>Scenes</Text>
+                    </View>
                 
-                <View style={{ padding: 10, width: '70%' }}>
-                    <Text style={{ textAlign: 'center', fontFamily: FONTS.body1.fontFamily, fontSize: 17 }}>
-                        Link your devices and action together with a single tap or command
-                    </Text>
-                </View>
+                    <View style={{ padding: 10, width: '70%' }}>
+                        <Text style={{ textAlign: 'center', fontFamily: FONTS.body1.fontFamily, fontSize: 17 }}>
+                            Link your devices and action together with a single tap or command
+                        </Text>
+                    </View>
                 
-                <View style={styles.button}>
-                    <TouchableOpacity
-                        onPress={ () => navigation.navigate("AddSceneDetail")}
-                        style={{ flex: 1, flexDirection:'row' ,justifyContent: 'center', alignItems: 'center' }}>
-                        <Icon name='add' style={{color:'white',fontSize: 20}}></Icon>
-                        <Text style={{
-                            paddingLeft: 5,
-                            fontSize: 16,
-                            fontWeight: 'bold',
-                            color: "white",
-                        }}>Add Scenes</Text>
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.button}>
+                        <TouchableOpacity
+                            onPress={ () => navigation.navigate("AddSceneDetail")}
+                            style={{ flex: 1, flexDirection:'row' ,justifyContent: 'center', alignItems: 'center' }}>
+                            <Icon name='add' style={{color:'white',fontSize: 20}}></Icon>
+                            <Text style={{
+                                paddingLeft: 5,
+                                fontSize: 16,
+                                fontWeight: 'bold',
+                                color: "white",
+                                }}>Add Scenes</Text>
+                        </TouchableOpacity>
+                    </View>
                 
-            </View>
+                </View>   
         </SafeAreaView>
         
     );

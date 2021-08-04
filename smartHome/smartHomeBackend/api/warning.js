@@ -3,7 +3,7 @@ const router = express.Router();
 const Warning = require("../models/warning.model");
 
 // Add a Warning POST /api/warning
-router.post('/warning', (req, res) => {
+router.post('/', (req, res) => {
 
     const warning = new Warning({
         userID: req.body.userID,
@@ -21,7 +21,7 @@ router.post('/warning', (req, res) => {
 })
 
 // Returns all Warning of a User POST /api/warning/getList
-router.post('/warning/getList', async (req, res) => {
+router.post('/getList', async (req, res) => {
     var userID = req.body.userID
 
     Warning.find({ userID: userID })
@@ -38,7 +38,7 @@ router.post('/warning/getList', async (req, res) => {
 })
 
 // Delete a Warning DELETE /api/warning/delete
-router.post('/warning/delete', (req, res) => {
+router.post('/delete', (req, res) => {
     const warningID = req.body.warningID;
     Warning.remove({ _id: warningID }, function (err, result) {
         if (err) {

@@ -24,9 +24,9 @@ mongoose.connection.on("error", (err) => {
     console.log("error", err)
 })
 
-app.use('/api', require('./api/user'))
-app.use('/api', require('./api/scene'))
-app.use('/api', require('./api/warning'))
+app.use('/api/user', require('./api/user'))
+app.use('/api/scene', require('./api/scene'))
+app.use('/api/warning', require('./api/warning'))
 app.use('/api/action', require('./api/action'));
 
 app.listen(3000, () => {

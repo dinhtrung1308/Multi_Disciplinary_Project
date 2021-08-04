@@ -1,20 +1,49 @@
-import React, { useState } from 'react';
-import {StyleSheet, Text, View, ImageBackground, Dimensions, TextInput, TouchableOpacity} from 'react-native';
-import { images } from '../constants';
-import appTheme from '../constants/theme';
+import React, { useState, useEffect } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Dimensions,
+  TextInput,
+  TouchableOpacity,
+  ActivityIndicator
+} from 'react-native';
+import { images,FONTS } from '../constants';
 const windoWidth = Dimensions.get('window').width;
 import {AuthContext} from "../components/Context"
 
-
 function Login({navigation }) {
 
+  
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = React.useState(false);
+
 
   const {signIn} = React.useContext(AuthContext);
   
+  if (isLoading){
+    return (
+      <ImageBackground
+          style={{flex: 1,
+                  backgroundColor: 'black',
+                  alignItems: 'center',
+                  justifyContent: 'center',}}
+          imageStyle={{ opacity: 0.5 }}
+          source={images.backgroundImg}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Text style={{color:'gold', fontSize:20}}>Checking...</Text>
+              <ActivityIndicator size="large" color="gold"></ActivityIndicator>
+        </View>
+      </ImageBackground>
+    )
+  }
 
   const onSubmit = () => {
+    // Getting authentication state
+    let userId;
+    setIsLoading(true);
     fetch('http://127.0.0.1:3000/api/user/login', {
       method: 'POST',
       headers: {
@@ -24,26 +53,39 @@ function Login({navigation }) {
         username: userName,
         password: password
       })
-    }).then(res => res.json() )
+    }).then(res => res.json())
       .then(result => {
-        console.log(result);
-        if(result.status === "wrong"){
-          alert('Wrong username/password')
+        if (result.status === "wrong") {
+          alert('Wrong username/password');
         }
-        else{
-          signIn(result._id);
+        else {
+          userId = result._id;
+          // Fetching user data
+          return fetch('http://127.0.0.1:3000/api/scene/' + userId, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+          })
         }
       })
-      .catch((error) => {
-        console.error(error);
+      .then(res => res.json())
+      .then(res => {
+        setIsLoading(false);
+        signIn(userId, res.sceneList);
       })
+      .catch(function (error) {
+        console.error('Error:', error);
+      })
+    
   }
 
   return (
     <ImageBackground
-            style={styles.background}
+      style={styles.background}
+      imageStyle={{ opacity: 0.5 }}
             source={images.backgroundImg}>
-      <View>
+      <View style={{marginBottom:10}}>
         <Text style={styles.titleStyle}>HOME MANAGER</Text>
       </View>
 
@@ -89,17 +131,12 @@ function Login({navigation }) {
 
 const styles = StyleSheet.create({
   background: {
-      flex : 1,
+      flex: 1,
+      backgroundColor: 'black',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
   },
-  titleStyle: {
-    color: '#b06f13',
-    marginBottom: 10,
-    fontSize: 35,
-    fontWeight: 'bold',
-    fontFamily: appTheme.FONTS.largeTitle.fontFamily
-  },
+  titleStyle: FONTS.splash,
   input: {
     width: windoWidth - 55,
     height: 50,
